@@ -121,10 +121,13 @@
       bottom: 0;
       height: 0.38em;
       width: 0;
-      background: rgba(255, 40, 40, 0.32);
-      animation: lineSweep 0.85s cubic-bezier(0.4,0,0.2,1) 0.4s forwards;
+      background: rgba(255, 38, 38, 0.48);
+      animation: lineSweep 0.65s cubic-bezier(0.4,0,0.2,1) forwards;
       z-index: -1;
     }
+    .hl1::after { animation-delay: 0.3s; }
+    .hl2::after { animation-delay: 1.5s; }
+    .hl3::after { animation-delay: 2.7s; }
     @keyframes lineSweep {
       to { width: 100%; }
     }
@@ -384,7 +387,7 @@
 
 <header class="site-header">
   <div class="site-label">Policy Analysis &mdash; AI Safety &amp; Biosecurity</div>
-  <h1><span class="hl">Uncensorable, Unmonitorable, Uncontrollable</span>: U.S. Policy Options for Open-Weight Biosecurity Risk</h1>
+  <h1><span class="hl hl1">Uncensorable</span>, <span class="hl hl2">Unmonitorable</span>, <span class="hl hl3">Uncontrollable</span>: U.S. Policy Options for Open-Weight Biosecurity Risk</h1>
   <p class="subtitle">China is releasing AI it can&rsquo;t control. Here&rsquo;s why that&rsquo;s a biosecurity problem, and what the U.S. can do about it.</p>
   <div class="meta">Published April 10, 2026 | Last Updated April 10, 2026</div>
 
