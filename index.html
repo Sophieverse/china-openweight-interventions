@@ -690,21 +690,29 @@
   <!-- 3. LABS -->
   <div class="paper-section" id="anchor-3">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-      <!-- Section 3: molecule (3 nodes with bonds) -->
+      <!-- Section 3: balance scale -->
       <span class="sec-icon">
         <svg width="30" height="28" viewBox="0 0 30 28" fill="none">
-          <!-- Bonds -->
-          <line x1="15" y1="5" x2="5"  y2="22" stroke="#8b1a1a" stroke-width="1.2" stroke-opacity="0.5"/>
-          <line x1="15" y1="5" x2="25" y2="22" stroke="#8b1a1a" stroke-width="1.2" stroke-opacity="0.5"/>
-          <line x1="5"  y1="22" x2="25" y2="22" stroke="#8b1a1a" stroke-width="1.2" stroke-opacity="0.5"/>
-          <!-- Nodes -->
-          <circle cx="15" cy="5"  r="4.5" fill="#faf9f6" stroke="#8b1a1a" stroke-width="1.3"/>
-          <circle cx="5"  cy="22" r="4.5" fill="#faf9f6" stroke="#8b1a1a" stroke-width="1.3"/>
-          <circle cx="25" cy="22" r="4.5" fill="#faf9f6" stroke="#8b1a1a" stroke-width="1.3"/>
-          <!-- Animated fill on top node -->
-          <circle cx="15" cy="5" r="4.5" fill="#8b1a1a">
-            <animate attributeName="opacity" values="0;0.18;0" dur="3s" repeatCount="indefinite"/>
-          </circle>
+          <!-- Static: post + base + pivot -->
+          <line x1="15" y1="6" x2="15" y2="25" stroke="#8b1a1a" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="9"  y1="25" x2="21" y2="25" stroke="#8b1a1a" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="15" cy="6" r="1.8" fill="#8b1a1a"/>
+          <!-- Animated group: beam + pans, rotates around pivot -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="0 15 6; 5 15 6; 0 15 6; -5 15 6; 0 15 6"
+              dur="4s" calcMode="spline"
+              keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"
+              repeatCount="indefinite"/>
+            <!-- Beam -->
+            <line x1="4" y1="6" x2="26" y2="6" stroke="#8b1a1a" stroke-width="1.3" stroke-linecap="round"/>
+            <!-- Left arm + pan -->
+            <line x1="4" y1="6" x2="4" y2="16" stroke="#8b1a1a" stroke-width="0.9" stroke-opacity="0.65" stroke-linecap="round"/>
+            <path d="M1,16 Q4,19.5 7,16" stroke="#8b1a1a" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+            <!-- Right arm + pan -->
+            <line x1="26" y1="6" x2="26" y2="16" stroke="#8b1a1a" stroke-width="0.9" stroke-opacity="0.65" stroke-linecap="round"/>
+            <path d="M23,16 Q26,19.5 29,16" stroke="#8b1a1a" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          </g>
         </svg>
       </span>
       <span class="sec-num">3.</span>
