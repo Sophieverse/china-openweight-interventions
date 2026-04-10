@@ -109,18 +109,21 @@
       line-height: 1.2;
       color: var(--text);
       margin-bottom: 0.65rem;
-      position: relative;
-      display: inline-block;
     }
-    h1::after {
+    .hl {
+      position: relative;
+      display: inline;
+    }
+    .hl::after {
       content: '';
       position: absolute;
       left: 0;
-      bottom: -4px;
-      height: 2.5px;
+      bottom: 0;
+      height: 0.38em;
       width: 0;
-      background: #e02020;
-      animation: lineSweep 0.75s cubic-bezier(0.4,0,0.2,1) 0.4s forwards;
+      background: rgba(220, 28, 28, 0.28);
+      animation: lineSweep 0.85s cubic-bezier(0.4,0,0.2,1) 0.4s forwards;
+      z-index: -1;
     }
     @keyframes lineSweep {
       to { width: 100%; }
@@ -381,7 +384,7 @@
 
 <header class="site-header">
   <div class="site-label">Policy Analysis &mdash; AI Safety &amp; Biosecurity</div>
-  <h1>The Bottleneck Is Closing: U.S. Policy Options for Open-Weight Biosecurity Risk</h1>
+  <h1><span class="hl">The Bottleneck Is Closing</span>: U.S. Policy Options for Open-Weight Biosecurity Risk</h1>
   <p class="subtitle">China is releasing AI it can&rsquo;t control. Here&rsquo;s why that&rsquo;s a biosecurity problem.</p>
   <div class="meta">Published April 10, 2026 | Last Updated April 10, 2026</div>
 
