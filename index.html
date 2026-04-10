@@ -131,9 +131,9 @@
     @keyframes lineSweep {
       to { width: 100%; }
     }
-    @keyframes dnaRotate {
-      from { transform: rotateY(0deg); }
-      to   { transform: rotateY(360deg); }
+    @keyframes dnaScroll {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-50%); }
     }
     .subtitle {
       color: var(--muted);
@@ -437,7 +437,7 @@
             <a href="#anchor-4" onclick="goTo('section-4')" class="toc-top-link">4. Harden Supply Chain</a>
             <ol class="toc-sub">
               <li><a href="#s4-1" onclick="goTo('section-4','s4-1')">4.1 DNA synthesis screening</a></li>
-              <li><a href="#s4-2" onclick="goTo('section-4','s4-2')">4.2 Cloud lab &amp; CRO KYC</a></li>
+              <li><a href="#s4-2" onclick="goTo('section-4','s4-2')">4.2 Cloud lab KYC</a></li>
             </ol>
           </li>
         </ol>
@@ -830,24 +830,18 @@
   <!-- 4. SUPPLY CHAIN -->
   <div class="paper-section" id="anchor-4">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-      <!-- Section 4: DNA double helix, spins in place -->
-      <span class="sec-icon" style="perspective:140px;">
-        <svg width="20" height="24" viewBox="0 0 20 24" fill="none"
-             style="animation:dnaRotate 3.5s linear infinite; transform-origin:50% 50%;">
-          <!-- Strand A: two full S-curves, red -->
-          <path d="M2,0 C18,3 2,9 18,12 C2,15 18,21 2,24"
-                stroke="#8b1a1a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-          <!-- Strand B: opposite phase, gray -->
-          <path d="M18,0 C2,3 18,9 2,12 C18,15 2,21 18,24"
-                stroke="#a09890" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-          <!-- Rungs: spaced every ~4px, denser to read as a ladder -->
-          <line x1="3"  y1="1.5" x2="17" y2="1.5" stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round"/>
-          <line x1="3"  y1="5"   x2="17" y2="5"   stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round" stroke-opacity="0.5"/>
-          <line x1="3"  y1="9"   x2="17" y2="9"   stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round"/>
-          <line x1="3"  y1="12"  x2="17" y2="12"  stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round" stroke-opacity="0.5"/>
-          <line x1="3"  y1="15"  x2="17" y2="15"  stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round"/>
-          <line x1="3"  y1="19"  x2="17" y2="19"  stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round" stroke-opacity="0.5"/>
-          <line x1="3"  y1="22.5" x2="17" y2="22.5" stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round"/>
+      <!-- Section 4: DNA double helix, scrolling -->
+      <span class="sec-icon">
+        <svg width="22" height="56" viewBox="0 0 22 56" fill="none" style="animation: dnaScroll 3.5s linear infinite; display:block;">
+          <!-- Strand A -->
+          <path d="M11,0 Q20,7 11,14 Q2,21 11,28 Q20,35 11,42 Q2,49 11,56" stroke="#8b1a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Strand B -->
+          <path d="M11,0 Q2,7 11,14 Q20,21 11,28 Q2,35 11,42 Q20,49 11,56" stroke="#b8b0a6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Crossbars -->
+          <line x1="5" y1="7"  x2="17" y2="7"  stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+          <line x1="5" y1="21" x2="17" y2="21" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+          <line x1="5" y1="35" x2="17" y2="35" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+          <line x1="5" y1="49" x2="17" y2="49" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
         </svg>
       </span>
       <span class="sec-num">4.</span>
