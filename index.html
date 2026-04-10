@@ -8,9 +8,14 @@
     :root {
       --bg: #0f1117;
       --surface: #1a1d27;
+      --surface2: #20232f;
       --border: #2a2d3a;
       --text: #e2e4ed;
       --muted: #8b8fa8;
+      --red: #8b1a1a;
+      --red-bright: #b02222;
+      --red-dim: #5a1010;
+      --red-glow: rgba(139,26,26,0.15);
       --accent: #5b8af0;
       --max-w: 860px;
     }
@@ -21,7 +26,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'Georgia', serif;
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.75;
       padding: 0 1rem;
     }
@@ -29,167 +34,362 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
+    /* ── HEADER ── */
     .site-header {
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 2.5rem 0 1.5rem;
       border-bottom: 1px solid var(--border);
     }
-
     .site-label {
       font-family: 'Courier New', monospace;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    h1 {
-      font-size: 2.1rem;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 1rem;
-      color: #8b1a1a;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      font-size: 1rem;
-      font-style: italic;
-    }
-
-    .meta {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-top: 1.25rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-family: 'Courier New', monospace;
-    }
-
-    main {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 2.5rem 0 6rem;
-    }
-
-    /* TOC */
-    .toc {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 6px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 3rem;
-    }
-    .toc-title {
-      font-family: 'Courier New', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 0.75rem;
     }
-    .toc ol { padding-left: 1.4rem; }
-    .toc li { margin: 0.3rem 0; font-size: 0.95rem; }
-    .toc li a { color: var(--text); }
-    .toc li a:hover { color: var(--accent); }
-    .toc .sub { padding-left: 1.2rem; list-style-type: lower-alpha; color: var(--muted); }
-    .toc .sub li a { color: var(--muted); }
-
-    /* Prose */
-    p { margin-bottom: 1.2rem; }
-
-    /* Chapter dividers (size=26 pages like "1 (CCP)") */
-    .chapter-title {
-      font-size: 1.55rem;
-      color: #8b1a1a;
-      margin: 3rem 0 1rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      color: var(--red);
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+    .meta {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
     }
 
-    /* Section title (size=20) */
-    .section-title {
-      font-size: 1.35rem;
-      color: #8b1a1a;
-      margin: 0.5rem 0 1.5rem;
-      font-weight: normal;
+    main { max-width: var(--max-w); margin: 0 auto; padding: 2.5rem 0 6rem; }
+
+    /* ── DECISION TREE ── */
+    .tree-section {
+      margin-bottom: 3.5rem;
     }
 
-    /* Subsection title (size=16) */
-    .subsection-title {
-      font-size: 1.15rem;
-      color: #8b1a1a;
-      margin: 2rem 0 1rem;
-      font-weight: normal;
+    .tree-intro {
+      margin-bottom: 1.5rem;
     }
-
-    /* Bold labels used inline (Background:, The Intervention:, etc.) */
-    b { font-weight: bold; }
-    i, em { font-style: italic; }
-
-    /* Recommendation group headers */
-    .rec-header {
-      font-weight: bold;
-      margin: 1.2rem 0 0.3rem;
-    }
-
-    /* Bullet lists */
-    ul.bullets {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 0.5rem 0;
-    }
-    ul.bullets li {
-      padding-left: 1.4rem;
-      position: relative;
+    .tree-intro h2 {
+      font-size: 1.3rem;
+      color: var(--red);
       margin-bottom: 0.4rem;
+      font-weight: normal;
     }
-    ul.bullets li::before {
-      content: '●';
-      position: absolute;
-      left: 0;
+    .tree-intro p {
       color: var(--muted);
+      font-size: 0.9rem;
     }
-    ul.bullets .sub {
-      padding-left: 1.4rem;
-      list-style: none;
+
+    /* Question card */
+    .question-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1rem;
+      position: relative;
     }
-    ul.bullets .sub li::before {
-      content: '○';
+    .q-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       color: var(--muted);
+      margin-bottom: 0.6rem;
     }
-    ul.bullets .sub .sub li::before {
-      content: '■';
-      font-size: 0.7em;
-      top: 0.2em;
+    .q-text {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .q-context {
+      font-size: 0.83rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+    .q-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .q-btn {
+      padding: 0.55em 1.4em;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .q-btn:hover { border-color: var(--red-bright); background: var(--red-glow); }
+    .q-btn.selected { border-color: var(--red-bright); background: var(--red-glow); color: #e88; }
+
+    /* Progress bar */
+    .progress-bar {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .progress-pip {
+      height: 3px;
+      flex: 1;
+      border-radius: 2px;
+      background: var(--border);
+      transition: background 0.3s;
+    }
+    .progress-pip.done { background: var(--red); }
+    .progress-pip.active { background: var(--red-bright); }
+
+    /* Recommendation results */
+    .results-panel {
+      background: var(--surface);
+      border: 1px solid var(--red-dim);
+      border-radius: 8px;
+      padding: 1.75rem 2rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    .results-panel.visible { display: block; }
+    .results-header {
+      margin-bottom: 1.25rem;
+    }
+    .results-header h3 {
+      font-size: 1rem;
+      color: var(--red);
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+    .results-header p {
+      font-size: 0.83rem;
       color: var(--muted);
     }
 
-    /* Footnote text */
+    .rec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 540px) { .rec-grid { grid-template-columns: 1fr; } }
+
+    .rec-card {
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.85rem 1rem;
+      background: var(--surface2);
+      cursor: pointer;
+      transition: border-color 0.15s;
+      text-decoration: none;
+      display: block;
+    }
+    .rec-card:hover { border-color: var(--red-bright); text-decoration: none; }
+    .rec-card .rc-num {
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.2rem;
+    }
+    .rec-card .rc-title {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 0.3rem;
+    }
+    .rec-card .rc-actor {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+    }
+    .rec-card.priority { border-color: var(--red-dim); }
+    .rec-card.priority .rc-num { color: #c06060; }
+
+    .always-block {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 0.25rem;
+    }
+    .always-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .reset-btn {
+      margin-top: 1.25rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      text-decoration: underline;
+    }
+    .reset-btn:hover { color: var(--text); }
+
+    /* Answers summary shown while progressing */
+    .answer-trail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .answer-chip {
+      font-family: 'Courier New', monospace;
+      font-size: 0.72rem;
+      padding: 0.2em 0.7em;
+      border-radius: 3px;
+      background: var(--red-glow);
+      border: 1px solid var(--red-dim);
+      color: #e88;
+    }
+
+    /* ── DIVIDER ── */
+    .paper-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0 2rem;
+      position: relative;
+    }
+    .paper-divider-label {
+      position: absolute;
+      top: -0.65rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg);
+      padding: 0 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ── FULL PAPER ── */
+    .paper-section {
+      margin-bottom: 0.5rem;
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Georgia', serif;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: border-color 0.15s;
+    }
+    .accordion-trigger:hover { border-color: var(--red-bright); }
+    .accordion-trigger.open { border-color: var(--red-dim); border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+    .accordion-trigger .sec-num {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+    .accordion-trigger .sec-title { flex: 1; }
+    .accordion-arrow {
+      font-size: 0.75rem;
+      color: var(--muted);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 0.75rem;
+    }
+    .accordion-trigger.open .accordion-arrow { transform: rotate(180deg); }
+
+    .accordion-body {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--red-dim);
+      border-top: none;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .accordion-body.open { display: block; }
+
+    /* Paper prose */
+    .paper-prose p { margin-bottom: 1.1rem; font-size: 0.95rem; line-height: 1.75; }
+    .paper-prose p:last-child { margin-bottom: 0; }
+
+    .subsec-title {
+      font-size: 1.05rem;
+      color: var(--red);
+      margin: 1.75rem 0 0.75rem;
+      font-weight: normal;
+    }
+    .subsec-title:first-child { margin-top: 0; }
+
+    .rec-header { font-weight: bold; margin: 1.1rem 0 0.3rem; font-size: 0.93rem; }
+
+    ul.bullets { list-style: none; padding: 0; margin: 0 0 0.5rem; }
+    ul.bullets li {
+      padding-left: 1.3rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+      font-size: 0.92rem;
+    }
+    ul.bullets li::before { content: '●'; position: absolute; left: 0; color: var(--muted); }
+    ul.bullets .sub { padding-left: 1.3rem; list-style: none; }
+    ul.bullets .sub li::before { content: '○'; }
+    ul.bullets .sub .sub li::before { content: '■'; font-size: 0.7em; top: 0.2em; }
+
+    .note-italic { font-style: italic; margin: 0.75rem 0 1.1rem; font-size: 0.92rem; }
+
     .footnote {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--muted);
       border-top: 1px solid var(--border);
-      margin-top: 1.5rem;
+      margin-top: 1.25rem;
       padding-top: 0.75rem;
     }
-    sup {
-      font-size: 0.65em;
-      vertical-align: super;
-      line-height: 0;
-    }
 
-    /* Italic scope/note blocks */
-    .note-italic {
-      font-style: italic;
-      margin: 0.75rem 0 1.2rem;
-    }
+    sup { font-size: 0.65em; vertical-align: super; line-height: 0; }
 
-    /* Footer */
+    /* TOC inside paper */
+    .paper-toc {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red-dim);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.88rem;
+    }
+    .paper-toc ol { padding-left: 1.25rem; }
+    .paper-toc li { margin: 0.25rem 0; }
+    .paper-toc .sub { padding-left: 1rem; list-style-type: lower-alpha; color: var(--muted); }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem 0;
@@ -206,9 +406,14 @@
       :root {
         --bg: #f8f7f4;
         --surface: #eeecea;
+        --surface2: #e5e2df;
         --border: #d0cdc8;
         --text: #1a1917;
         --muted: #6b6860;
+        --red: #7a1515;
+        --red-bright: #9b2020;
+        --red-dim: #c08080;
+        --red-glow: rgba(139,26,26,0.08);
         --accent: #2a5ad0;
       }
     }
@@ -220,460 +425,771 @@
   <div class="site-label">Policy Analysis &mdash; AI Safety &amp; Biosecurity</div>
   <h1>China Open-Weight AI Interventions</h1>
   <p class="subtitle">What the US and allies can do if Chinese open-weight models create unacceptable biosecurity risk</p>
-  <div class="meta">
-    <span>Published April 10, 2026 | Last Updated April 10, 2026</span>
-  </div>
+  <div class="meta">Published April 10, 2026 | Last Updated April 10, 2026</div>
 </header>
 
 <main>
 
-  <!-- TOC -->
-  <nav class="toc" aria-label="Table of contents">
-    <div class="toc-title">Contents</div>
-    <ol start="0">
-      <li><a href="#introduction">Introduction &amp; Intervention Overview</a></li>
-      <li>
-        <a href="#section-1">Convince the Chinese Government to Restrict Open-Weight Releases</a>
-        <ol class="sub">
-          <li><a href="#s1-1">1.1 Communicate biosecurity risks through bilateral diplomacy</a></li>
-          <li><a href="#s1-2">1.2 Publicize misuse to generate international pressure</a></li>
-        </ol>
-      </li>
-      <li>
-        <a href="#section-2">Limit Access Through Unilateral Action</a>
-        <ol class="sub">
-          <li><a href="#s2-1">2.1 Fund research into robust safeguards</a></li>
-          <li><a href="#s2-2">2.2 Implement conditional bans on Chinese open-weight models</a></li>
-          <li><a href="#s2-3">2.3 Reduce individual adoption through public risk communication</a></li>
-          <li><a href="#s2-4">2.4 Sanction individuals and designate companies</a></li>
-        </ol>
-      </li>
-      <li>
-        <a href="#section-3">Shift the Calculus for Chinese AI Labs Directly</a>
-        <ol class="sub">
-          <li><a href="#s3-1">3.1 Researcher-to-researcher persuasion through academic channels</a></li>
-          <li><a href="#s3-2">3.2 Offer conditional compute access in exchange for closed weights</a></li>
-        </ol>
-      </li>
-      <li>
-        <a href="#section-4">Harden the Biological Supply Chain</a>
-        <ol class="sub">
-          <li><a href="#s4-1">4.1 Mandate AI-enabled DNA synthesis screening</a></li>
-          <li><a href="#s4-2">4.2 KYC requirements for cloud laboratories and CROs</a></li>
-        </ol>
-      </li>
-    </ol>
-  </nav>
-
-  <!-- Introduction -->
-  <section id="introduction">
-    <h2 class="chapter-title">Introduction</h2>
-
-    <p>In January 2026, Las Vegas police and the FBI raided a suburban home and found multiple refrigerators, freezers, laboratory equipment, and &ldquo;numerous bottles&hellip; containing unknown liquid substances.&rdquo; The illegal biolab was connected to a similar operation discovered in Reedley, California roughly three years earlier. The Reedley facility contained thousands of vials of biological material, including potential pathogens such as HIV, malaria, tuberculosis, COVID-19, and Ebola; both labs were run by the same individual. Despite knowing about potential Las Vegas connections since 2023, it took a separate tip three years later to uncover the second operation.</p>
-
-    <p>Biorisk is often discussed in hypothetical terms, with historical case studies pointing mostly towards failures and bottlenecks. But the Las Vegas biolab raid and its connection to the 2022 Reedley discovery show that dangerous biological operations could already be&ndash; and indeed, <i>were</i> &ndash; happening under the radar across multiple states.</p>
-
-    <p>Historically, technical knowledge has been the limiting factor. When Aum Shinrikyo tried to weaponize anthrax in 1993, they had motivation and funding but lacked expertise&ndash; wrong bacterial strain, poor concentrations, equipment failures. Knowledge gaps killed their program. AI is quickly eroding that constraint. Publicly available models like o3 already outperform 94% of virology experts on laboratory protocol questions, even on questions directly relevant to the experts&rsquo; specialties. That benchmark performance hasn&rsquo;t yet translated cleanly into end-to-end weapons development guidance, but <b>the trajectory is clear.</b> Models are advancing toward the ability to provide expert-level virological guidance on demand, anonymously, and at scale. Anthropic&rsquo;s own internal bioweapons acquisition uplift trials found that Claude Opus 4 enhanced human performance by 2.53x on relevant tasks, enough to trigger activation of AI Safety Level 3.</p>
-
-    <p>For <b>closed-weight models</b>, this risk is at least partially manageable. Input-output classifiers, safety fine-tuning, and know-your-customer requirements can intercept most non-sophisticated actors before they get actionable guidance. These mitigations are imperfect&ndash; models remain vulnerable to jailbreaks, and red-teaming studies have repeatedly demonstrated that they can be coaxed into providing dangerous guidance&ndash; but they represent a meaningful layer of friction. <b>Open-weight models have no such layer.</b> Once released, they can be downloaded, stripped of safety fine-tuning, and run locally with no oversight, no logging, and no recourse.</p>
-
-    <p>The best open-weight models in the world are Chinese (here are our best guesses for why Chinese AI companies open-weight their models).</p>
-
-    <p>That leaves us the question: if Chinese open-weight models help rogue actors to build bioweapons, and we deem that an unacceptable risk, what could the US do?</p>
-
-    <p>We think there are four broad classes of intervention:</p>
-  </section>
-
-  <!-- Overview -->
-  <section id="overview">
-    <h2 class="chapter-title">Intervention Overview</h2>
-
-    <ul class="bullets">
-      <li><b>(CCP)</b> Convince the Chinese Government to Restrict Open-Weight Releases
-        <ul class="sub">
-          <li>1.1. Communicate biosecurity risks through bilateral diplomacy</li>
-          <li>1.2. Publicize misuse to generate international pressure</li>
-        </ul>
-      </li>
-      <li><b>(US &amp; ALLIES)</b> Limit Access to Chinese Open-Weight Models Through Unilateral Action
-        <ul class="sub">
-          <li>2.1. Fund research into robust safeguards for open-weight models</li>
-          <li>2.2. Implement conditional bans on Chinese open-weight models</li>
-          <li>2.3. Reduce individual adoption of Chinese AI through public risk communication</li>
-          <li>2.4. Sanction individuals and designate companies under counterterrorism authorities</li>
-        </ul>
-      </li>
-      <li><b>(LABS)</b> Shift the Calculus for Chinese AI Labs Directly
-        <ul class="sub">
-          <li>3.1. Researcher-to-researcher persuasion through academic channels</li>
-          <li>3.2. Offer conditional compute access in exchange for closed weights</li>
-        </ul>
-      </li>
-      <li><b>(SUPPLY CHAIN)</b> Harden the Biological Supply Chain Against Models Already in Circulation
-        <ul class="sub">
-          <li>4.1. Mandate AI-enabled DNA synthesis screening</li>
-          <li>4.2. Implement know-your-customer requirements for cloud laboratories</li>
-        </ul>
-      </li>
-    </ul>
-
-    <p style="margin-top:1.2rem;">In the rest of this piece, we&rsquo;ll provide context on the interventions above. Not all of the interventions proposed here should be implemented by default. The more adversarial recommendations should be (1) reserved for labs that release frontier open-weight models <i>without adequate safeguards</i><sup>1</sup>, and (2) conditional on dual-use evaluations by the U.S. government concluding that open weight models <i>pose unacceptable risk</i>.</p>
-
-    <p>To that end, we also recommend that the U.S. government fund research into robust safeguards for open-weight models, so that the technical alternatives to restriction exist. If open-weight models can be made safe enough, the restrictive interventions described in this paper become unnecessary. The interventions should be understood as buying time for that safety research to succeed, rather than as advocating for a permanent end to open-weight models.</p>
-
-    <p><b>Author&rsquo;s Note: Follow-up work on mitigating adverse effects</b><br>
-    Many of the interventions proposed here impose costs on legitimate users. Startups building on Chinese open-weight models face disruption if those models can&rsquo;t be served by cloud providers, and academic researchers could lose access to weights they use for interpretability work and safety research. Whether these costs actually materialize depends on two open questions: how quickly robust safeguards for open-weight models can be developed (see Section 2.1), and whether dual-use evaluations conclude that current open-weight models cross the threshold of unacceptable risk.</p>
-
-    <p>If safeguards advance fast enough, the restrictive interventions in this paper never need to be triggered. If they&rsquo;re triggered, they should be explicitly temporary, meaning tied to capability thresholds and revoked once adequate safeguards exist.</p>
-
-    <p>But in the interim, if restrictions are implemented, their costs should be actively mitigated. We intend to explore specific measures&ndash; including research exemptions for academic use, migration support for startups transitioning to alternative models, and safe harbors for existing deployments during a defined transition period&ndash; in a subsequent publication.</p>
-
-    <div class="footnote">
-      <sup>1</sup> Techniques like pre-training data filtering and alignment pre-training, while not foolproof, can meaningfully reduce the biosecurity risk of open-weight release. Labs that invest in these measures and demonstrate their effectiveness should not be treated the same as labs that release raw capabilities with no mitigations.
-    </div>
-  </section>
-
-  <!-- Section 1 -->
-  <section id="section-1">
-    <h2 class="chapter-title">1 (CCP)</h2>
-    <h3 class="section-title">1. Convince the Chinese Government to Restrict Open-Weight Releases</h3>
-
-    <h4 class="subsection-title" id="s1-1">1.1 Communicate biosecurity risks through bilateral diplomacy</h4>
-
-    <p><b>Background:</b> Chinese policymakers are already aware of AI-enabled biorisk. Their AI Safety Governance Framework 2.0 explicitly identifies CBRN weapon misuse as a serious emerging threat, demonstrating that concerns about AI enabling bioweapons development have already reached senior advisors within the CCP. This creates an opening for direct engagement.</p>
-
-    <p>Moreover, China has not fully escaped international scrutiny over COVID-19&rsquo;s origins; questions about the Wuhan Institute of Virology and biosafety protocols remain politically sensitive. A bioterrorism incident&ndash; even a failed attempt&ndash; traced to Chinese AI models would trigger immediate international backlash, leading to renewed accusations about lax oversight and validation of critics who claim Chinese technology creates global risks.</p>
-
-    <p>The CCP has legitimate interests in preventing this scenario. Framework 2.0&rsquo;s inclusion of CBRN risks signals awareness; diplomatic engagement should emphasize that <b>open-weighting</b> makes those risks unmanageable&ndash; since unlike closed models where usage can be monitored and suspicious patterns flagged, open weights eliminate any possibility of intervention between AI guidance and physical harm.</p>
-
-    <p><b>The Intervention:</b> Make the case directly to Chinese policymakers that open-weight release specifically is incompatible with their own biosecurity goals through diplomatic channels, academic back-channels, and policy publications widely read by officials in the CCP.</p>
-
-    <p><b>Recommendations</b></p>
-
-    <p class="rec-header">State Department (Bureau of Emerging Threats)</p>
-    <ul class="bullets">
-      <li>Propose a US-China AI Biosecurity Working Group under the existing bilateral AI dialogue, coordinated through the Bureau of Emerging Threats&rsquo; Office of Disruptive Technology, with a joint risk assessment deliverable within 6 months</li>
-    </ul>
-
-    <p class="rec-header">Executive Branch</p>
-    <ul class="bullets">
-      <li>Send a demand signal via the NSC/intelligence community to direct the intelligence community to prioritize collection on terrorist organizations&rsquo; potential AI adoption, with particular attention to use of Chinese open-weight models by designated foreign terrorist organizations (see 1.2, 2.4)</li>
-    </ul>
-
-    <p class="rec-header">Department of War (Defense Threat Reduction Agency&ndash; DTRA)</p>
-    <ul class="bullets">
-      <li>Commission a narrowly scoped DTRA assessment focused specifically on the biosecurity uplift delta between open-weight and closed-weight models, quantifying how much additional risk open-weight access creates compared to what closed API-served models enable
-        <ul class="sub">
-          <li>The assessment should use a bounded-capability adversary model, specifying constraints on compute, fine-tuning datasets, and assumed domain expertise for plausible threat actor classes (e.g., an individual with consumer hardware versus a state-sponsored program with datacenter access)</li>
-          <li>Key variables may include: the uplift from abliteration (removing safety fine-tuning, which requires minimal technical sophistication for open-weight models); the uplift from domain-specific fine-tuning on publicly available bioweapons-relevant literature; and the capability ceiling of the most powerful open-weight models currently available</li>
-        </ul>
-      </li>
-    </ul>
-
-    <p class="rec-header">Academic &amp; Track II</p>
-    <ul class="bullets">
-      <li>Engage the China Academy of Information and Communications Technology (CAICT), the MIIT-affiliated research institute that developed China&rsquo;s first industry standards for evaluating generative AI products
-        <ul class="sub">
-          <li>CAICT&rsquo;s assessment criteria feed into the CAC&rsquo;s mandatory model registration process, making it the most direct channel for integrating biosecurity considerations into China&rsquo;s existing pre-release evaluation framework</li>
-        </ul>
-      </li>
-      <li>Introduce open-weight biosecurity risk as a formal agenda item within ITU and ISO standardization processes, where Chinese regulators already hold significant seats</li>
-      <li>Fund a joint NAS&ndash;Chinese Academy of Sciences research project on AI-enabled biosecurity risks from open-weight models, with research funding through NIH</li>
-      <li>Commission analysis (through institutions like CSET, RAND, or the Brookings-Tsinghua Center) in Chinese-policymaker-facing outlets (<i>China Quarterly</i>, <i>The Diplomat</i>), co-authored with Chinese-affiliated researchers where possible</li>
-    </ul>
-
-    <h4 class="subsection-title" id="s1-2">1.2 Publicize misuse to generate international pressure</h4>
-
-    <p><b>Background:</b> Following the assassination of Iran&rsquo;s supreme leader Ayatollah Khamenei in February 2026, terrorism experts warn of increased terrorism risks from both state-sponsored Iranian networks and radicalized individuals, with concerns that Shia extremists could commit attacks in support of Iran. If such actors were discovered using open-weight models to plan or execute attacks, this would provide concrete evidence to demonstrate that open-weight models create immediate security threats.</p>
-
-    <p><b>The Intervention:</b> Investigative journalism or intelligence reports demonstrating that open-source models are actively being used by terrorist organizations could generate sufficient international backlash to pressure the CCP into committing to stop open-weighting.</p>
-
-    <p><b>Recommendations</b></p>
-
-    <p class="rec-header">Intelligence Community &amp; NSC</p>
-    <ul class="bullets">
-      <li>Prioritize collection on terrorist organizations&rsquo; AI adoption with particular attention to use of open-weight models by designated foreign terrorist organizations (see 1.1, 2.4)</li>
-      <li>Establish a pre-coordinated rapid declassification pipeline for AI-misuse intelligence, modeled on the Biden administration&rsquo;s preemptive intelligence releases before the Ukraine invasion</li>
-    </ul>
-
-    <p class="rec-header">Investigative &amp; OSINT Infrastructure</p>
-    <ul class="bullets">
-      <li>Ensure declassified intelligence reaches credible investigative outlets through established channels</li>
-      <li>Commission an external research organization (Middlebury Institute Center on Terrorism, Extremism, and Counterterrorism, or the Global Network on Extremism and Technology) to continuously monitor extremist forums and dark web spaces for evidence of open-weight model use</li>
-    </ul>
-  </section>
-
-  <!-- Section 2 -->
-  <section id="section-2">
-    <h2 class="chapter-title">2 (US &amp; ALLIES)</h2>
-    <h3 class="section-title">2. Limit Access to Chinese Open-Weight Models Through Unilateral Action</h3>
-
-    <h4 class="subsection-title" id="s2-1">2.1 Fund research into robust safeguards for open-weight models</h4>
-
-    <p><b>Background:</b> If open-weight models can be made safe enough that release no longer creates unacceptable biosecurity risk, then restrictions on their release become unnecessary. This is the ideal situation given the drawbacks associated with stopping open-weight releases (detailed in this post).</p>
-
-    <p>Techniques like pre-training data filtering and alignment pre-training show promise, but are under-researched; there is currently no open-weight safeguard that is both foolproof and practically deployable by labs.</p>
-
-    <p>This paper, titled &ldquo;Open Technical Problems in Open-Weight AI Model Risk Management,&rdquo; provides the most comprehensive current map of the research frontier and identifies 16 open problems that need further research.</p>
-
-    <p><b>The Intervention:</b> Direct substantial, sustained funding toward the specific problem of making open-weight release safe. Currently, most AI safety research funding flows toward closed-model alignment work (making frontier lab models less susceptible to misuse through their APIs, e.g. input-output classifiers). This work is valuable, but largely irrelevant to the open-weight biosecurity problem; a model that is well-aligned at the API level provides no protection once its weights are downloaded and its safety fine-tuning is stripped.</p>
-
-    <p>The research agenda required to make open-weight release safe is distinct from the agenda currently receiving the most attention and funding, and that gap is not self-correcting, because closed labs have limited commercial incentive to invest in safety techniques that primarily benefit their open-weight competitors.</p>
-
-    <p><b>Ideal Implementing Party:</b> U.S. government funding agencies (NSF, DARPA) for foundational research, complemented by private philanthropic foundations (Coefficient Giving, Longview) for grants that can be deployed more quickly. Both should fund research that is focused on safeguards that are robust to post-release modification and published openly, so that the results are available to labs worldwide&ndash; including Chinese labs that might adopt them voluntarily.</p>
-
-    <h4 class="subsection-title" id="s2-2">2.2 Implement conditional bans on Chinese open-weight models</h4>
-
-    <p class="note-italic">Restrictions apply only above defined capability thresholds, as assessed by designated U.S. agencies using standardized dual-use capability evaluations.</p>
-
-    <p class="note-italic"><b><i>A note on scope:</i></b> This intervention does not directly prevent the paper&rsquo;s core threat scenario; a terrorist downloading weights to run locally will not be deterred by a commercial deployment ban. The mechanism is indirect: Chinese labs often open-source in part because ecosystem adoption in Western markets generates developer loyalty, tooling investment, and cloud revenue. If that adoption is banned in the U.S. and allied countries, the strategic payoff of open-sourcing shrinks, which changes the calculus for future releases. This is a pressure measure aimed at the lab&rsquo;s incentive structure, rather than a security measure aimed at the end user. For interventions targeting the end user directly, see Section 2.3 and all of Section 4.</p>
-
-    <p><b>Background:</b> Several major bills already propose restricting Chinese AI models in the U.S. (e.g. the No DeepSeek on Government Devices Act, the No Adversarial AI Act, and the Decoupling America&rsquo;s Artificial Intelligence Capabilities from China Act). However, none distinguish between open-weight and closed-weight releases, which is the distinction most relevant for assessing biosecurity risk.</p>
-
-    <p><b>The Intervention:</b> The U.S. and allied governments<sup>2</sup> could restrict commercial use and deployment of Chinese open-weight models on national security grounds, while explicitly exempting closed Chinese models that meet defined safety criteria.<sup>3</sup></p>
-
-    <p>This targets the commercial ecosystem, not individuals. Weights already released remain downloadable. Because of this, 2.2 pairs with the public risk communication measures in 2.3.</p>
-
-    <p><b>Recommendations</b></p>
-
-    <p class="rec-header">Department of Commerce (BIS)</p>
-    <ul class="bullets">
-      <li>Prohibit U.S. cloud providers (Amazon Web Services, Microsoft Azure, Google Cloud) from hosting, serving, or otherwise enabling access to designated models through managed AI services using IEEPA transaction-blocking authority</li>
-      <li>Establish a &ldquo;safe harbor&rdquo; framework for closed Chinese models that meet defined safety criteria (e.g. monitored API access, CBRN query refusal) to be explicitly exempt from distribution restrictions
-        <ul class="sub">
-          <li>Chinese labs that keep weights closed and demonstrate adherence to these criteria retain access to U.S. companies</li>
-        </ul>
-      </li>
-    </ul>
-
-    <p class="rec-header">State Department</p>
-    <ul class="bullets">
-      <li>Pursue alignment with allies through the Group of Seven and AUKUS frameworks to encourage allied adoption of similar restrictions</li>
-    </ul>
-
-    <div class="footnote">
-      <p><sup>2</sup> Note: Non-U.S. governments have independent data sovereignty incentives to prefer open-weight models run on domestic infrastructure. For this reason, allied coordination should focus on shared safety certification standards, allowing allied governments to adopt frameworks consistent with their own legal and sovereignty contexts rather than pushing for equivalent restrictions to what the U.S. implements.</p>
-      <p style="margin-top:0.5rem;"><sup>3</sup> This exemption addresses the biosecurity risk specifically; broader national security concerns around data security and espionage in closed Chinese AI services remain, and should be managed through existing cybersecurity frameworks/network security policies.</p>
+  <!-- ═══════════════════════════════════════════════
+       DECISION TREE
+  ════════════════════════════════════════════════ -->
+  <div class="tree-section">
+    <div class="tree-intro">
+      <h2>What should the US do?</h2>
+      <p>Answer three questions to find the interventions relevant to your threat model.</p>
     </div>
 
-    <h4 class="subsection-title" id="s2-3">2.3 Reduce individual adoption of Chinese AI through public risk communication</h4>
+    <div id="tree-ui">
+      <!-- Progress -->
+      <div class="progress-bar" id="progress-bar">
+        <div class="progress-pip active" id="pip-0"></div>
+        <div class="progress-pip" id="pip-1"></div>
+        <div class="progress-pip" id="pip-2"></div>
+      </div>
 
-    <p><b>Background:</b> 2.2 focuses on commercial use. However, the individual developer downloading Chinese open-weight models to run locally is beyond the reach of cloud providers, and attempting to ban individual access outright is largely unenforceable.</p>
+      <!-- Answer trail -->
+      <div class="answer-trail" id="answer-trail" style="display:none;"></div>
 
-    <p>The most promising lever here is likely to be trust. Chinese technology companies have a well-documented history of security negligence and undisclosed data sharing with state-linked entities&ndash; patterns that extend directly to Chinese AI products. DeepSeek&rsquo;s own track record illustrates this: security researchers at Wiz discovered a completely unauthenticated database exposing over a million lines of chat history and API keys; SecurityScorecard&rsquo;s STRIKE team identified undisclosed data transmissions to Chinese state-linked entities along with ByteDance-owned libraries embedded in the codebase; and an independent audit by NowSecure found the iOS app transmitted user data without proper encryption using deprecated cryptography with hardcoded keys.</p>
+      <!-- Q1 -->
+      <div class="question-card" id="q1">
+        <div class="q-label">Question 1 of 3</div>
+        <div class="q-text">Are robust technical safeguards for open-weight models feasible in the near term?</div>
+        <div class="q-context">Techniques like pre-training data filtering and alignment pre-training show promise, but none are currently foolproof. If this problem is solvable, restrictions may never need to be triggered.</div>
+        <div class="q-buttons">
+          <button class="q-btn" onclick="answer(1,'yes')">Yes &mdash; solvable</button>
+          <button class="q-btn" onclick="answer(1,'no')">No &mdash; not near-term</button>
+          <button class="q-btn" onclick="answer(1,'unclear')">Unclear</button>
+        </div>
+      </div>
 
-    <p>These security and data privacy failures from the highest-profile Chinese AI company in the world are consistent with a broader pattern that includes TikTok&rsquo;s data practices, the FCC&rsquo;s ban on Huawei and ZTE equipment as a national security risk, and the FCC&rsquo;s investigation of China Mobile&rsquo;s U.S. operations over concerns regarding government control and data access.</p>
+      <!-- Q2 -->
+      <div class="question-card" id="q2" style="display:none;">
+        <div class="q-label">Question 2 of 3</div>
+        <div class="q-text">Is diplomatic engagement with China a viable channel?</div>
+        <div class="q-context">China's AI Safety Governance Framework 2.0 already flags CBRN risks. But geopolitical conditions vary. If diplomacy is off the table, the US must rely on unilateral levers.</div>
+        <div class="q-buttons">
+          <button class="q-btn" onclick="answer(2,'yes')">Yes &mdash; viable</button>
+          <button class="q-btn" onclick="answer(2,'no')">No &mdash; not viable</button>
+        </div>
+      </div>
 
-    <p>Running models locally avoids data exfiltration risks. However, when a developer or enterprise adopts a Chinese open-weight model, they&rsquo;re making a long-term dependency decision. The security culture visible in a lab&rsquo;s cloud products is the best available signal for how that organization handles the aspects of model development that users can&rsquo;t observe, including training data provenance, pre-release evaluation rigor, and responsiveness to discovered vulnerabilities. Labs that fail at the basics of API security are not labs you want as a foundational dependency.</p>
+      <!-- Q3 -->
+      <div class="question-card" id="q3" style="display:none;">
+        <div class="q-label">Question 3 of 3</div>
+        <div class="q-text">Has there been a documented case of AI-enabled misuse by a terrorist or state actor?</div>
+        <div class="q-context">A confirmed incident changes the evidentiary landscape: it enables sanctions designations, generates international pressure on the CCP, and triggers the most coercive interventions.</div>
+        <div class="q-buttons">
+          <button class="q-btn" onclick="answer(3,'yes')">Yes &mdash; confirmed incident</button>
+          <button class="q-btn" onclick="answer(3,'no')">No &mdash; not yet</button>
+        </div>
+      </div>
 
-    <p>A coordinated public communications strategy that makes these risks clear to individual developers and researchers, situated within the broader context of Chinese tech trustworthiness, could reduce adoption without requiring enforcement.</p>
+      <!-- Results -->
+      <div class="results-panel" id="results">
+        <div class="results-header">
+          <h3>Recommended interventions for your threat model</h3>
+          <p id="results-summary"></p>
+        </div>
+        <div class="rec-grid" id="rec-grid"></div>
+        <div class="always-block">
+          <div class="always-label">Always recommended &mdash; regardless of assumptions</div>
+          <div class="rec-grid" id="always-grid">
+            <a class="rec-card priority" href="#s4-1">
+              <div class="rc-num">4.1 &mdash; Supply Chain</div>
+              <div class="rc-title">Mandate AI-enabled DNA synthesis screening</div>
+              <div class="rc-actor">HHS / OSTP / Congress</div>
+            </a>
+            <a class="rec-card priority" href="#s4-2">
+              <div class="rc-num">4.2 &mdash; Supply Chain</div>
+              <div class="rc-title">KYC requirements for cloud laboratories &amp; CROs</div>
+              <div class="rc-actor">HHS / NIST / Congress</div>
+            </a>
+            <a class="rec-card priority" href="#s2-1">
+              <div class="rc-num">2.1 &mdash; US &amp; Allies</div>
+              <div class="rc-title">Fund research into robust open-weight safeguards</div>
+              <div class="rc-actor">NSF / DARPA / Philanthropy</div>
+            </a>
+          </div>
+        </div>
+        <button class="reset-btn" onclick="reset()">&#8635; Start over</button>
+      </div>
+    </div>
+  </div>
 
-    <p><b>Recommendations</b></p>
+  <!-- ═══════════════════════════════════════════════
+       FULL PAPER
+  ════════════════════════════════════════════════ -->
+  <div class="paper-divider" style="position:relative;">
+    <span class="paper-divider-label">Full paper</span>
+  </div>
 
-    <p class="rec-header">CISA &amp; NSC</p>
-    <ul class="bullets">
-      <li>Issue public advisories&ndash; modeled on existing CISA cybersecurity advisories&ndash; warning individual users about documented security risks of Chinese AI products</li>
-      <li>Brief enterprise CISOs and CTOs through existing government-industry channels (CISA&rsquo;s Joint Cyber Defense Collaborative, sector-specific ISACs) on risks of Chinese AI adoption</li>
-    </ul>
+  <!-- 0. Introduction & Intervention Overview -->
+  <div class="paper-section">
+    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+      <span class="sec-num">0.</span>
+      <span class="sec-title">Introduction &amp; Intervention Overview</span>
+      <span class="accordion-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="intro">
+      <div class="paper-prose">
 
-    <p class="rec-header">NIST</p>
-    <ul class="bullets">
-      <li>Publish a framework for evaluating AI model trustworthiness, covering training data transparency, corporate governance structure, data jurisdiction, regulatory environment, security track record, etc</li>
-    </ul>
+        <div class="paper-toc">
+          <ol start="0">
+            <li>Introduction &amp; Intervention Overview</li>
+            <li>Convince the Chinese Government to Restrict Open-Weight Releases
+              <ol class="sub">
+                <li>Communicate biosecurity risks through bilateral diplomacy</li>
+                <li>Publicize misuse to generate international pressure</li>
+              </ol>
+            </li>
+            <li>Limit Access Through Unilateral Action
+              <ol class="sub">
+                <li>Fund research into robust safeguards</li>
+                <li>Implement conditional bans on Chinese open-weight models</li>
+                <li>Reduce individual adoption through public risk communication</li>
+                <li>Sanction individuals and designate companies</li>
+              </ol>
+            </li>
+            <li>Shift the Calculus for Chinese AI Labs Directly
+              <ol class="sub">
+                <li>Researcher-to-researcher persuasion through academic channels</li>
+                <li>Offer conditional compute access in exchange for closed weights</li>
+              </ol>
+            </li>
+            <li>Harden the Biological Supply Chain
+              <ol class="sub">
+                <li>Mandate AI-enabled DNA synthesis screening</li>
+                <li>KYC requirements for cloud laboratories and CROs</li>
+              </ol>
+            </li>
+          </ol>
+        </div>
 
-    <p class="rec-header">State Department</p>
-    <ul class="bullets">
-      <li>Coordinate allied messaging through Five Eyes and G7, ensuring equivalent public advisories from UK, EU, Japan, and Australia</li>
-    </ul>
+        <p>In January 2026, Las Vegas police and the FBI raided a suburban home and found multiple refrigerators, freezers, laboratory equipment, and &ldquo;numerous bottles&hellip; containing unknown liquid substances.&rdquo; The illegal biolab was connected to a similar operation discovered in Reedley, California roughly three years earlier. The Reedley facility contained thousands of vials of biological material, including potential pathogens such as HIV, malaria, tuberculosis, COVID-19, and Ebola; both labs were run by the same individual. Despite knowing about potential Las Vegas connections since 2023, it took a separate tip three years later to uncover the second operation.</p>
 
-    <p class="rec-header">Other</p>
-    <ul class="bullets">
-      <li>Support independent security researchers publishing technical audits of Chinese AI products
-        <ul class="sub">
-          <li>Will generate organic media coverage and developer community discussion</li>
-        </ul>
-      </li>
-      <li>Encourage industry-led voluntary commitments from U.S. tech companies to disclose Chinese AI dependencies in their supply chains, similar to software bill of materials (SBOM) requirements</li>
-    </ul>
+        <p>Biorisk is often discussed in hypothetical terms, with historical case studies pointing mostly towards failures and bottlenecks. But the Las Vegas biolab raid and its connection to the 2022 Reedley discovery show that dangerous biological operations could already be&ndash; and indeed, <i>were</i> &ndash; happening under the radar across multiple states.</p>
 
-    <h4 class="subsection-title" id="s2-4">2.4 Sanction individuals and designate companies under counterterrorism authorities</h4>
+        <p>Historically, technical knowledge has been the limiting factor. When Aum Shinrikyo tried to weaponize anthrax in 1993, they had motivation and funding but lacked expertise&ndash; wrong bacterial strain, poor concentrations, equipment failures. Knowledge gaps killed their program. AI is quickly eroding that constraint. Publicly available models like o3 already outperform 94% of virology experts on laboratory protocol questions, even on questions directly relevant to the experts&rsquo; specialties. That benchmark performance hasn&rsquo;t yet translated cleanly into end-to-end weapons development guidance, but <b>the trajectory is clear.</b> Models are advancing toward the ability to provide expert-level virological guidance on demand, anonymously, and at scale. Anthropic&rsquo;s own internal bioweapons acquisition uplift trials found that Claude Opus 4 enhanced human performance by 2.53x on relevant tasks, enough to trigger activation of AI Safety Level 3.</p>
 
-    <p><b>Background:</b> Executive Order 13224, originally signed after 9/11, blocks assets of entities that &ldquo;commit, threaten to commit, or support terrorism.&rdquo; The authorities under EO 13224 have been applied expansively in recent years, including to non-state actors such as transnational criminal organizations.</p>
+        <p>For <b>closed-weight models</b>, this risk is at least partially manageable. Input-output classifiers, safety fine-tuning, and know-your-customer requirements can intercept most non-sophisticated actors before they get actionable guidance. These mitigations are imperfect&ndash; models remain vulnerable to jailbreaks, and red-teaming studies have repeatedly demonstrated that they can be coaxed into providing dangerous guidance&ndash; but they represent a meaningful layer of friction. <b>Open-weight models have no such layer.</b> Once released, they can be downloaded, stripped of safety fine-tuning, and run locally with no oversight, no logging, and no recourse.</p>
 
-    <p><b>The Intervention:</b> If open-source models are demonstrably used in a terrorist attack or weapons development, the U.S. could consider designating responsible entities under Executive Order 13224 where there is a demonstrable and substantial nexus between the model release and a terrorist act.</p>
+        <p>The best open-weight models in the world are Chinese (here are our best guesses for why Chinese AI companies open-weight their models).</p>
 
-    <p>Individual sanctions would freeze personal assets, bar travel, and make any financial institution that does business with the designated person a target for secondary sanctions. For a lab CEO or CTO, this means: you personally cannot hold a U.S. bank account, use a Visa card, fly through an allied country, or transact with any entity that wants to keep its access to the U.S. financial system.</p>
+        <p>That leaves us the question: if Chinese open-weight models help rogue actors to build bioweapons, and we deem that an unacceptable risk, what could the US do? We think there are four broad classes of intervention:</p>
 
-    <p>The threshold for designation is high, and premature use could provoke serious diplomatic backlash. But the credible <i>threat</i> of designation may be enough to stop labs from releasing open-source models.</p>
-
-    <p><b>Recommendations</b></p>
-
-    <p class="rec-header">Treasury (OFAC) &amp; State Department (Bureau of Counterterrorism)</p>
-    <ul class="bullets">
-      <li>Designation requires a factual nexus between the entity and a terrorist act; the evidentiary case would likely involve intelligence agencies documenting the use of a specific open-weight model in a specific attack or credible plot</li>
-    </ul>
-
-    <p class="note-italic">This pairs directly with the intelligence collection and declassification pipeline described in 1.2&ndash; that section builds the evidence base; this section is an extension of what you can do with it.</p>
-  </section>
-
-  <!-- Section 3 -->
-  <section id="section-3">
-    <h2 class="chapter-title">3 (LABS)</h2>
-    <h3 class="section-title">3. Shift the Calculus for Chinese AI Labs Directly</h3>
-
-    <h4 class="subsection-title" id="s3-1">3.1 Promote open-weight safety practices through academic channels</h4>
-
-    <p><b>Background:</b> If labs are planning to open-source frontier models regardless, the next best outcome is that the models they release have robust safety measures baked in at the pre-training level.</p>
-
-    <p>Techniques like pre-training data filtering and alignment pre-training show promising early results for reducing the biosecurity risk of open-weight models, though no researched methods up to this point are fully robust (see Section 2.1). Even so, no Chinese lab has adopted any of these techniques.</p>
-
-    <p><b>The Intervention:</b> Use existing academic channels and conference networks to promote adoption of open-weight safety practices.</p>
-
-    <p>Researcher-to-researcher dialogue already happens organically; the major ML conferences ensure that the relevant people are in the same rooms every year. A targeted conversation backed by a compelling technical demonstration of what a safety-stripped open-weight model can produce, paired with evidence that pre-training safeguards can prevent misuse without degrading general capabilities, may be sufficient to shift a lab&rsquo;s calculus.</p>
-
-    <p><b>Ideal Implementing Party:</b> AI safety researchers and biosecurity experts with existing relationships to Chinese AI labs, operating through academic channels and conference networks rather than formal diplomatic channels.</p>
-
-    <h4 class="subsection-title" id="s3-2">3.2 Offer conditional compute access in exchange for closed weights</h4>
-
-    <p><b>Background:</b> In December 2025, the Trump administration announced it would allow Nvidia to export H200 chips to China, with formal regulations issued in January 2026 permitting sales to approved customers under security conditions. These decisions demonstrate the administration&rsquo;s willingness to selectively adjust export controls on a case-by-case basis; a natural next step is to introduce explicit conditionality into licensing decisions, where labs that release frontier open-weight models face an increased likelihood of license denial or revocation.</p>
-
-    <p><b>The Intervention:</b> The US could use export control licenses as direct leverage, conditioning access to advanced compute on model release practices, including favoring developers that keep frontier model weights closed. This alters the incentive structure around open-weight releases by linking them to advanced compute access (see #1 on this article).</p>
-
-    <p class="note-italic">Note: Conditional on continued export of advanced chips to China, this intervention should be implemented; however, it is probably better not to export any.</p>
-
-    <p><b>Recommendations</b></p>
-
-    <p class="rec-header">Department of Commerce (BIS)</p>
-    <ul class="bullets">
-      <li>Amend existing export control licenses to state that a company&rsquo;s decision to publicly release frontier model weights should be treated as a significant negative factor in licensing decisions, including potential denial or revocation of access to advanced chips
-        <ul class="sub">
-          <li>Note: Chinese labs could trivially game the system by maintaining separate entities (one closed to preserve chip access and one open-sourcing under a different name). BIS should define &ldquo;affiliated entity&rdquo; broadly in license terms&ndash; covering subsidiaries, shared investors, shared personnel, and shared compute infrastructure&ndash; to reduce the effectiveness of this workaround.</li>
-        </ul>
-      </li>
-      <li>Finalize pending KYC rules for U.S. cloud providers serving foreign clients, and extend the conditionality framework above to cloud compute access so that entities affiliated with labs that release designated frontier models without adequate safeguards face denial or revocation of large-scale compute purchases from U.S. providers</li>
-    </ul>
-
-    <p class="rec-header">State Department</p>
-    <ul class="bullets">
-      <li>Coordinate with allied semiconductor-adjacent governments (Netherlands/ASML, Japan/Tokyo Electron, South Korea/Samsung, etc) to encourage similar conditionality on their equipment exports</li>
-    </ul>
-  </section>
-
-  <!-- Section 4 -->
-  <section id="section-4">
-    <h2 class="chapter-title">4 (SUPPLY CHAIN)</h2>
-    <h3 class="section-title">4. Harden the Biological Supply Chain Against Models Already in Circulation</h3>
-
-    <p>Highly capable open-source models have already been downloaded millions of times and distributed globally; we cannot un-release them. Even if every Chinese lab stopped open-sourcing tomorrow, DeepSeek R1, Qwen, Kimi k2.5, and other capable models already out there can meaningfully uplift <i>some stages</i> of bioweapon development. Therefore, even as we work to prevent future releases through Levels 1-3, we must simultaneously harden the biological supply chain against models already in circulation.</p>
-
-    <p><b>Level 4 interventions complement rather than replace efforts to stop new releases.</b> While Levels 1-3 target the source (preventing Chinese and Western labs from open-sourcing future models), Level 4 creates barriers at the point where AI guidance must translate into physical biological materials. These interventions work regardless of who releases what, since they target the supply chain itself.</p>
-
-    <p><b>Defense requires both strategies working in parallel:</b> stopping new, more capable models from being released (which would further lower barriers and enable more sophisticated attacks) while simultaneously creating friction at every stage where existing AI capabilities must interface with the physical world.</p>
-
-    <h4 class="subsection-title" id="s4-1">4.1 Mandate AI-enabled DNA synthesis screening</h4>
-
-    <p><b>Background:</b> Currently, there exists <b>no universal legal requirement</b> for gene synthesis providers to conduct background checks on clients or screen DNA sequences to ensure they&rsquo;re not dangerous pathogens. While some labs screen orders on a voluntary basis as a condition of membership in organizations like the International Gene Synthesis Consortium, compliance remains optional and inconsistent. In 2006, an investigative journalist with the Guardian was able to mail order a &ldquo;modified sequence of smallpox DNA,&rdquo; and their order was not screened by the provider since it was less than 100 nucleotides long.</p>
-
-    <p>Even in the United States, no binding legal requirements exist for DNA synthesis screening. Federal regulations were proposed in 2024 through the Framework for Nucleic Acid Synthesis Screening, but an Executive Order in May 2025 paused implementation, and no replacement framework has been issued. Moreover, despite several congressional bills attempting to mandate screening, none have passed. This regulatory gap means anyone, including those with malicious intent, can order potentially dangerous genetic sequences with minimal oversight.</p>
-
-    <p><b>The Intervention:</b> Existing screening approaches rely on sequence homology, which means matching orders against databases of known dangerous pathogens. An AI-enabled bioterrorist could circumvent this by designing functionally equivalent pathogens using synonymous codons, chimeric sequences, or entirely novel genetic constructs that retain lethality while evading database matches.</p>
-
-    <p>To address this issue, we need to implement advanced AI-powered screening that would analyze predicted protein function and evolutionary markers to flag potentially dangerous sequences.</p>
-
-    <p>Implementation requires two components: First, we must develop reliable AI screening systems capable of detecting novel pathogenic sequences that the world has never seen before; second, we must require all commercial DNA synthesis providers globally to implement this screening as a condition for legal operation.</p>
-
-    <p><b>Recommendations</b></p>
-
-    <p class="rec-header">Department of Health and Human Services / OSTP<br>
-    <span style="font-weight:normal;">(immediate actions while waiting for legislation from Congress)</span></p>
-    <ul class="bullets">
-      <li>Finalize the paused Framework for Nucleic Acid Synthesis Screening with a phased screening mandate:
-        <ul class="sub">
-          <li>Phase 1 (immediate): require sequence homology screening against databases of known dangerous pathogens, using existing methods</li>
-          <li>Phase 2 (triggered once a validated AI screening tool is available&ndash; see Congress section below): require screening that integrates AI-powered functional analysis
+        <ul class="bullets">
+          <li><b>(CCP)</b> Convince the Chinese Government to Restrict Open-Weight Releases
             <ul class="sub">
-              <li>Organizations like IBBIS and Fourth Eon Bio are already working on improved screening tools and international standards; Phase 2 should build on and accelerate this existing work</li>
+              <li>1.1. Communicate biosecurity risks through bilateral diplomacy</li>
+              <li>1.2. Publicize misuse to generate international pressure</li>
+            </ul>
+          </li>
+          <li><b>(US &amp; ALLIES)</b> Limit Access to Chinese Open-Weight Models Through Unilateral Action
+            <ul class="sub">
+              <li>2.1. Fund research into robust safeguards for open-weight models</li>
+              <li>2.2. Implement conditional bans on Chinese open-weight models</li>
+              <li>2.3. Reduce individual adoption of Chinese AI through public risk communication</li>
+              <li>2.4. Sanction individuals and designate companies under counterterrorism authorities</li>
+            </ul>
+          </li>
+          <li><b>(LABS)</b> Shift the Calculus for Chinese AI Labs Directly
+            <ul class="sub">
+              <li>3.1. Researcher-to-researcher persuasion through academic channels</li>
+              <li>3.2. Offer conditional compute access in exchange for closed weights</li>
+            </ul>
+          </li>
+          <li><b>(SUPPLY CHAIN)</b> Harden the Biological Supply Chain Against Models Already in Circulation
+            <ul class="sub">
+              <li>4.1. Mandate AI-enabled DNA synthesis screening</li>
+              <li>4.2. Implement know-your-customer requirements for cloud laboratories</li>
             </ul>
           </li>
         </ul>
-      </li>
-      <li>Tie federal research funding to compliance: any institution receiving NIH, NSF, or DARPA grants must procure synthetic nucleic acids exclusively from providers that meet the updated screening standards
-        <ul class="sub">
-          <li>This was already proposed in the 2024 framework and creates immediate market pressure without requiring new legislation</li>
+
+        <p style="margin-top:1rem;">Not all of the interventions proposed here should be implemented by default. The more adversarial recommendations should be (1) reserved for labs that release frontier open-weight models <i>without adequate safeguards</i><sup>1</sup>, and (2) conditional on dual-use evaluations by the U.S. government concluding that open weight models <i>pose unacceptable risk</i>.</p>
+
+        <p>To that end, we also recommend that the U.S. government fund research into robust safeguards for open-weight models, so that the technical alternatives to restriction exist. If open-weight models can be made safe enough, the restrictive interventions described in this paper become unnecessary. The interventions should be understood as buying time for that safety research to succeed, rather than as advocating for a permanent end to open-weight models.</p>
+
+        <p><b>Author&rsquo;s Note: Follow-up work on mitigating adverse effects</b><br>
+        Many of the interventions proposed here impose costs on legitimate users. Startups building on Chinese open-weight models face disruption if those models can&rsquo;t be served by cloud providers, and academic researchers could lose access to weights they use for interpretability work and safety research. Whether these costs actually materialize depends on two open questions: how quickly robust safeguards for open-weight models can be developed (see Section 2.1), and whether dual-use evaluations conclude that current open-weight models cross the threshold of unacceptable risk.</p>
+
+        <p>If safeguards advance fast enough, the restrictive interventions in this paper never need to be triggered. If they&rsquo;re triggered, they should be explicitly temporary, meaning tied to capability thresholds and revoked once adequate safeguards exist. But in the interim, if restrictions are implemented, their costs should be actively mitigated. We intend to explore specific measures&ndash; including research exemptions for academic use, migration support for startups transitioning to alternative models, and safe harbors for existing deployments during a defined transition period&ndash; in a subsequent publication.</p>
+
+        <div class="footnote">
+          <sup>1</sup> Techniques like pre-training data filtering and alignment pre-training, while not foolproof, can meaningfully reduce the biosecurity risk of open-weight release. Labs that invest in these measures and demonstrate their effectiveness should not be treated the same as labs that release raw capabilities with no mitigations.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. CCP -->
+  <div class="paper-section">
+    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+      <span class="sec-num">1.</span>
+      <span class="sec-title">Convince the Chinese Government to Restrict Open-Weight Releases</span>
+      <span class="accordion-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="section-1">
+      <div class="paper-prose">
+
+        <h3 class="subsec-title" id="s1-1">1.1 Communicate biosecurity risks through bilateral diplomacy</h3>
+
+        <p><b>Background:</b> Chinese policymakers are already aware of AI-enabled biorisk. Their AI Safety Governance Framework 2.0 explicitly identifies CBRN weapon misuse as a serious emerging threat, demonstrating that concerns about AI enabling bioweapons development have already reached senior advisors within the CCP. This creates an opening for direct engagement.</p>
+
+        <p>Moreover, China has not fully escaped international scrutiny over COVID-19&rsquo;s origins; questions about the Wuhan Institute of Virology and biosafety protocols remain politically sensitive. A bioterrorism incident&ndash; even a failed attempt&ndash; traced to Chinese AI models would trigger immediate international backlash, leading to renewed accusations about lax oversight and validation of critics who claim Chinese technology creates global risks.</p>
+
+        <p>The CCP has legitimate interests in preventing this scenario. Framework 2.0&rsquo;s inclusion of CBRN risks signals awareness; diplomatic engagement should emphasize that <b>open-weighting</b> makes those risks unmanageable&ndash; since unlike closed models where usage can be monitored and suspicious patterns flagged, open weights eliminate any possibility of intervention between AI guidance and physical harm.</p>
+
+        <p><b>The Intervention:</b> Make the case directly to Chinese policymakers that open-weight release specifically is incompatible with their own biosecurity goals through diplomatic channels, academic back-channels, and policy publications widely read by officials in the CCP.</p>
+
+        <p><b>Recommendations</b></p>
+
+        <p class="rec-header">State Department (Bureau of Emerging Threats)</p>
+        <ul class="bullets">
+          <li>Propose a US-China AI Biosecurity Working Group under the existing bilateral AI dialogue, coordinated through the Bureau of Emerging Threats&rsquo; Office of Disruptive Technology, with a joint risk assessment deliverable within 6 months</li>
         </ul>
-      </li>
-    </ul>
 
-    <p class="rec-header">Congress</p>
-    <ul class="bullets">
-      <li>Pass S.3741 with these proposed amendments</li>
-    </ul>
-
-    <p class="note-italic">International coordination for synthesis screening should be pursued through the multilateral channels described in Section 1, including the BWC and Australia Group frameworks.</p>
-
-    <h4 class="subsection-title" id="s4-2">4.2 Implement know-your-customer requirements for cloud laboratories and contract research organizations</h4>
-
-    <p><b>Background:</b> The standard objection to AI-driven bioweapons risk is that knowledge alone is not enough&ndash; you still need hands-on laboratory skills, the &ldquo;tacit knowledge&rdquo; that can only be acquired through years of physical practice (hence Active Site&rsquo;s uplift study). Knowing <i>how</i> to culture a pathogen is different from being able to do it reliably. This barrier has historically been one of the strongest defenses against non-state bioweapons development.</p>
-
-    <p>Unfortunately, cloud laboratories threaten to significantly erode this barrier. Services like Emerald Cloud Lab allow anyone to design experiments in software and have them executed by robotic systems in a physical facility, remotely, without ever entering a lab. ECL requires no coding experience; internal estimates suggest relatively short onboarding periods for novice users. An AI system that can design a bioweapons protocol and a cloud lab that can execute it are, individually, semi-manageable risks; together, they could materially increase the risk of misuse.</p>
-
-    <p>Despite this, cloud labs currently operate with no standardized customer screening. Contract research organizations (CROs) create a similar vulnerability. CROs provide specialized research services and can help their clients with everything from compound synthesis to biological assays. A malicious actor could potentially decompose a bioweapons development project into seemingly innocuous components and outsource them to different CROs, each unaware of the larger program.</p>
-
-    <p><b>The Intervention:</b> Require all cloud laboratory providers and contract research organizations to implement know-your-customer screening before granting access to experiment execution as a condition of legal operation. Providers should be required to log all experimental workflows and flag protocols involving select agents or sequences of concern, with automated screening that mirrors (and integrates with) the DNA synthesis screening proposed in 4.1. Also establish RAND&rsquo;s proposed Cloud Lab Security Consortium modeled on the IGSC.</p>
-
-    <p><b>Recommendations</b></p>
-
-    <p class="rec-header">Department of Health and Human Services</p>
-    <ul class="bullets">
-      <li>Issue rulemaking requiring all U.S.-based cloud laboratory providers and CROs to verify identity, institutional affiliation, and stated research purpose of every user before granting access to experiment execution
-        <ul class="sub">
-          <li>Model this on existing Select Agent Program registration requirements</li>
+        <p class="rec-header">Executive Branch</p>
+        <ul class="bullets">
+          <li>Send a demand signal via the NSC/intelligence community to direct the intelligence community to prioritize collection on terrorist organizations&rsquo; potential AI adoption, with particular attention to use of Chinese open-weight models by designated foreign terrorist organizations (see 1.2, 2.4)</li>
         </ul>
-      </li>
-      <li>Require cloud lab providers and CROs to log all experimental workflows and flag protocols involving select agents, sequences of concern, or pathogen-adjacent procedures, with automated screening that integrates with the DNA synthesis screening framework proposed in 4.1</li>
-    </ul>
 
-    <p class="rec-header">NIST (National Institute of Standards and Technology)</p>
-    <ul class="bullets">
-      <li>Develop standardized KYC and biosecurity screening standards specifically for cloud laboratories and CROs, defining:
-        <ul class="sub">
-          <li>Minimum identity verification thresholds</li>
-          <li>Prohibited experiment categories</li>
-          <li>Escalation procedures when flagged protocols are detected</li>
+        <p class="rec-header">Department of War (Defense Threat Reduction Agency&ndash; DTRA)</p>
+        <ul class="bullets">
+          <li>Commission a narrowly scoped DTRA assessment focused specifically on the biosecurity uplift delta between open-weight and closed-weight models, quantifying how much additional risk open-weight access creates compared to what closed API-served models enable
+            <ul class="sub">
+              <li>The assessment should use a bounded-capability adversary model, specifying constraints on compute, fine-tuning datasets, and assumed domain expertise for plausible threat actor classes (e.g., an individual with consumer hardware versus a state-sponsored program with datacenter access)</li>
+              <li>Key variables may include: the uplift from abliteration (removing safety fine-tuning, which requires minimal technical sophistication for open-weight models); the uplift from domain-specific fine-tuning on publicly available bioweapons-relevant literature; and the capability ceiling of the most powerful open-weight models currently available</li>
+            </ul>
+          </li>
         </ul>
-      </li>
-    </ul>
 
-    <p class="rec-header">Federal Funding Agencies (National Institutes of Health, National Science Foundation, DARPA)</p>
-    <ul class="bullets">
-      <li>Condition federal research grants on use of cloud labs and CROs that implement baseline KYC screening, using interim agency guidance while NIST develops formal standards (the same procurement-based lever proposed for DNA synthesis screening in 4.1)
-        <ul class="sub">
-          <li>For CROs specifically, this includes Chinese and Indian providers that cannot demonstrate equivalent customer verification standards; effectively creates a prohibited suppliers list of non-compliant overseas providers</li>
-          <li>Creates immediate market pressure before binding regulation is finalized</li>
+        <p class="rec-header">Academic &amp; Track II</p>
+        <ul class="bullets">
+          <li>Engage the China Academy of Information and Communications Technology (CAICT), the MIIT-affiliated research institute that developed China&rsquo;s first industry standards for evaluating generative AI products
+            <ul class="sub">
+              <li>CAICT&rsquo;s assessment criteria feed into the CAC&rsquo;s mandatory model registration process, making it the most direct channel for integrating biosecurity considerations into China&rsquo;s existing pre-release evaluation framework</li>
+            </ul>
+          </li>
+          <li>Introduce open-weight biosecurity risk as a formal agenda item within ITU and ISO standardization processes, where Chinese regulators already hold significant seats</li>
+          <li>Fund a joint NAS&ndash;Chinese Academy of Sciences research project on AI-enabled biosecurity risks from open-weight models, with research funding through NIH</li>
+          <li>Commission analysis (through institutions like CSET, RAND, or the Brookings-Tsinghua Center) in Chinese-policymaker-facing outlets (<i>China Quarterly</i>, <i>The Diplomat</i>), co-authored with Chinese-affiliated researchers where possible</li>
         </ul>
-      </li>
-    </ul>
 
-    <p class="rec-header">Congress</p>
-    <ul class="bullets">
-      <li>Pass legislation mandating KYC screening for all U.S.-based cloud laboratory providers and CROs as a condition of legal operation, regardless of whether they serve federally funded researchers</li>
-    </ul>
+        <h3 class="subsec-title" id="s1-2">1.2 Publicize misuse to generate international pressure</h3>
 
-    <p class="rec-header">International Coordination</p>
-    <ul class="bullets">
-      <li>Support the development of a Cloud Lab Security Consortium (proposed by RAND), modeled on the International Gene Synthesis Consortium</li>
-      <li>Work with allied governments to standardize CRO KYC requirements, reducing the regulatory arbitrage advantage of non-compliant overseas providers</li>
-    </ul>
+        <p><b>Background:</b> Following the assassination of Iran&rsquo;s supreme leader Ayatollah Khamenei in February 2026, terrorism experts warn of increased terrorism risks from both state-sponsored Iranian networks and radicalized individuals, with concerns that Shia extremists could commit attacks in support of Iran. If such actors were discovered using open-weight models to plan or execute attacks, this would provide concrete evidence to demonstrate that open-weight models create immediate security threats.</p>
 
-    <p class="note-italic">(!) Note: The KYC framework described here for cloud labs should also extend to DNA synthesis providers, which currently face no standardized customer screening requirements either.</p>
-  </section>
+        <p><b>The Intervention:</b> Investigative journalism or intelligence reports demonstrating that open-source models are actively being used by terrorist organizations could generate sufficient international backlash to pressure the CCP into committing to stop open-weighting.</p>
+
+        <p><b>Recommendations</b></p>
+
+        <p class="rec-header">Intelligence Community &amp; NSC</p>
+        <ul class="bullets">
+          <li>Prioritize collection on terrorist organizations&rsquo; AI adoption with particular attention to use of open-weight models by designated foreign terrorist organizations (see 1.1, 2.4)</li>
+          <li>Establish a pre-coordinated rapid declassification pipeline for AI-misuse intelligence, modeled on the Biden administration&rsquo;s preemptive intelligence releases before the Ukraine invasion</li>
+        </ul>
+
+        <p class="rec-header">Investigative &amp; OSINT Infrastructure</p>
+        <ul class="bullets">
+          <li>Ensure declassified intelligence reaches credible investigative outlets through established channels</li>
+          <li>Commission an external research organization (Middlebury Institute Center on Terrorism, Extremism, and Counterterrorism, or the Global Network on Extremism and Technology) to continuously monitor extremist forums and dark web spaces for evidence of open-weight model use</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. US & ALLIES -->
+  <div class="paper-section">
+    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+      <span class="sec-num">2.</span>
+      <span class="sec-title">Limit Access to Chinese Open-Weight Models Through Unilateral Action</span>
+      <span class="accordion-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="section-2">
+      <div class="paper-prose">
+
+        <h3 class="subsec-title" id="s2-1">2.1 Fund research into robust safeguards for open-weight models</h3>
+
+        <p><b>Background:</b> If open-weight models can be made safe enough that release no longer creates unacceptable biosecurity risk, then restrictions on their release become unnecessary. This is the ideal situation given the drawbacks associated with stopping open-weight releases (detailed in this post).</p>
+
+        <p>Techniques like pre-training data filtering and alignment pre-training show promise, but are under-researched; there is currently no open-weight safeguard that is both foolproof and practically deployable by labs.</p>
+
+        <p>This paper, titled &ldquo;Open Technical Problems in Open-Weight AI Model Risk Management,&rdquo; provides the most comprehensive current map of the research frontier and identifies 16 open problems that need further research.</p>
+
+        <p><b>The Intervention:</b> Direct substantial, sustained funding toward the specific problem of making open-weight release safe. Currently, most AI safety research funding flows toward closed-model alignment work (making frontier lab models less susceptible to misuse through their APIs, e.g. input-output classifiers). This work is valuable, but largely irrelevant to the open-weight biosecurity problem; a model that is well-aligned at the API level provides no protection once its weights are downloaded and its safety fine-tuning is stripped.</p>
+
+        <p>The research agenda required to make open-weight release safe is distinct from the agenda currently receiving the most attention and funding, and that gap is not self-correcting, because closed labs have limited commercial incentive to invest in safety techniques that primarily benefit their open-weight competitors.</p>
+
+        <p><b>Ideal Implementing Party:</b> U.S. government funding agencies (NSF, DARPA) for foundational research, complemented by private philanthropic foundations (Coefficient Giving, Longview) for grants that can be deployed more quickly. Both should fund research that is focused on safeguards that are robust to post-release modification and published openly, so that the results are available to labs worldwide&ndash; including Chinese labs that might adopt them voluntarily.</p>
+
+        <h3 class="subsec-title" id="s2-2">2.2 Implement conditional bans on Chinese open-weight models</h3>
+
+        <p class="note-italic">Restrictions apply only above defined capability thresholds, as assessed by designated U.S. agencies using standardized dual-use capability evaluations.</p>
+
+        <p class="note-italic"><b><i>A note on scope:</i></b> This intervention does not directly prevent the paper&rsquo;s core threat scenario; a terrorist downloading weights to run locally will not be deterred by a commercial deployment ban. The mechanism is indirect: Chinese labs often open-source in part because ecosystem adoption in Western markets generates developer loyalty, tooling investment, and cloud revenue. If that adoption is banned in the U.S. and allied countries, the strategic payoff of open-sourcing shrinks, which changes the calculus for future releases. This is a pressure measure aimed at the lab&rsquo;s incentive structure, rather than a security measure aimed at the end user. For interventions targeting the end user directly, see Section 2.3 and all of Section 4.</p>
+
+        <p><b>Background:</b> Several major bills already propose restricting Chinese AI models in the U.S. (e.g. the No DeepSeek on Government Devices Act, the No Adversarial AI Act, and the Decoupling America&rsquo;s Artificial Intelligence Capabilities from China Act). However, none distinguish between open-weight and closed-weight releases, which is the distinction most relevant for assessing biosecurity risk.</p>
+
+        <p><b>The Intervention:</b> The U.S. and allied governments<sup>2</sup> could restrict commercial use and deployment of Chinese open-weight models on national security grounds, while explicitly exempting closed Chinese models that meet defined safety criteria.<sup>3</sup> This targets the commercial ecosystem, not individuals. Weights already released remain downloadable.</p>
+
+        <p><b>Recommendations</b></p>
+
+        <p class="rec-header">Department of Commerce (BIS)</p>
+        <ul class="bullets">
+          <li>Prohibit U.S. cloud providers (Amazon Web Services, Microsoft Azure, Google Cloud) from hosting, serving, or otherwise enabling access to designated models through managed AI services using IEEPA transaction-blocking authority</li>
+          <li>Establish a &ldquo;safe harbor&rdquo; framework for closed Chinese models that meet defined safety criteria (e.g. monitored API access, CBRN query refusal) to be explicitly exempt from distribution restrictions
+            <ul class="sub">
+              <li>Chinese labs that keep weights closed and demonstrate adherence to these criteria retain access to U.S. companies</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p class="rec-header">State Department</p>
+        <ul class="bullets">
+          <li>Pursue alignment with allies through the Group of Seven and AUKUS frameworks to encourage allied adoption of similar restrictions</li>
+        </ul>
+
+        <div class="footnote">
+          <p><sup>2</sup> Note: Non-U.S. governments have independent data sovereignty incentives to prefer open-weight models run on domestic infrastructure. For this reason, allied coordination should focus on shared safety certification standards, allowing allied governments to adopt frameworks consistent with their own legal and sovereignty contexts rather than pushing for equivalent restrictions to what the U.S. implements.</p>
+          <p style="margin-top:0.5rem;"><sup>3</sup> This exemption addresses the biosecurity risk specifically; broader national security concerns around data security and espionage in closed Chinese AI services remain, and should be managed through existing cybersecurity frameworks/network security policies.</p>
+        </div>
+
+        <h3 class="subsec-title" id="s2-3">2.3 Reduce individual adoption of Chinese AI through public risk communication</h3>
+
+        <p><b>Background:</b> 2.2 focuses on commercial use. However, the individual developer downloading Chinese open-weight models to run locally is beyond the reach of cloud providers, and attempting to ban individual access outright is largely unenforceable.</p>
+
+        <p>The most promising lever here is likely to be trust. Chinese technology companies have a well-documented history of security negligence and undisclosed data sharing with state-linked entities&ndash; patterns that extend directly to Chinese AI products. DeepSeek&rsquo;s own track record illustrates this: security researchers at Wiz discovered a completely unauthenticated database exposing over a million lines of chat history and API keys; SecurityScorecard&rsquo;s STRIKE team identified undisclosed data transmissions to Chinese state-linked entities along with ByteDance-owned libraries embedded in the codebase; and an independent audit by NowSecure found the iOS app transmitted user data without proper encryption using deprecated cryptography with hardcoded keys.</p>
+
+        <p>These security and data privacy failures from the highest-profile Chinese AI company in the world are consistent with a broader pattern that includes TikTok&rsquo;s data practices, the FCC&rsquo;s ban on Huawei and ZTE equipment as a national security risk, and the FCC&rsquo;s investigation of China Mobile&rsquo;s U.S. operations over concerns regarding government control and data access.</p>
+
+        <p>Running models locally avoids data exfiltration risks. However, when a developer or enterprise adopts a Chinese open-weight model, they&rsquo;re making a long-term dependency decision. The security culture visible in a lab&rsquo;s cloud products is the best available signal for how that organization handles the aspects of model development that users can&rsquo;t observe, including training data provenance, pre-release evaluation rigor, and responsiveness to discovered vulnerabilities. Labs that fail at the basics of API security are not labs you want as a foundational dependency.</p>
+
+        <p>A coordinated public communications strategy that makes these risks clear to individual developers and researchers, situated within the broader context of Chinese tech trustworthiness, could reduce adoption without requiring enforcement.</p>
+
+        <p><b>Recommendations</b></p>
+
+        <p class="rec-header">CISA &amp; NSC</p>
+        <ul class="bullets">
+          <li>Issue public advisories&ndash; modeled on existing CISA cybersecurity advisories&ndash; warning individual users about documented security risks of Chinese AI products</li>
+          <li>Brief enterprise CISOs and CTOs through existing government-industry channels (CISA&rsquo;s Joint Cyber Defense Collaborative, sector-specific ISACs) on risks of Chinese AI adoption</li>
+        </ul>
+
+        <p class="rec-header">NIST</p>
+        <ul class="bullets">
+          <li>Publish a framework for evaluating AI model trustworthiness, covering training data transparency, corporate governance structure, data jurisdiction, regulatory environment, security track record, etc</li>
+        </ul>
+
+        <p class="rec-header">State Department</p>
+        <ul class="bullets">
+          <li>Coordinate allied messaging through Five Eyes and G7, ensuring equivalent public advisories from UK, EU, Japan, and Australia</li>
+        </ul>
+
+        <p class="rec-header">Other</p>
+        <ul class="bullets">
+          <li>Support independent security researchers publishing technical audits of Chinese AI products
+            <ul class="sub">
+              <li>Will generate organic media coverage and developer community discussion</li>
+            </ul>
+          </li>
+          <li>Encourage industry-led voluntary commitments from U.S. tech companies to disclose Chinese AI dependencies in their supply chains, similar to software bill of materials (SBOM) requirements</li>
+        </ul>
+
+        <h3 class="subsec-title" id="s2-4">2.4 Sanction individuals and designate companies under counterterrorism authorities</h3>
+
+        <p><b>Background:</b> Executive Order 13224, originally signed after 9/11, blocks assets of entities that &ldquo;commit, threaten to commit, or support terrorism.&rdquo; The authorities under EO 13224 have been applied expansively in recent years, including to non-state actors such as transnational criminal organizations.</p>
+
+        <p><b>The Intervention:</b> If open-source models are demonstrably used in a terrorist attack or weapons development, the U.S. could consider designating responsible entities under Executive Order 13224 where there is a demonstrable and substantial nexus between the model release and a terrorist act.</p>
+
+        <p>Individual sanctions would freeze personal assets, bar travel, and make any financial institution that does business with the designated person a target for secondary sanctions. For a lab CEO or CTO, this means: you personally cannot hold a U.S. bank account, use a Visa card, fly through an allied country, or transact with any entity that wants to keep its access to the U.S. financial system.</p>
+
+        <p>The threshold for designation is high, and premature use could provoke serious diplomatic backlash. But the credible <i>threat</i> of designation may be enough to stop labs from releasing open-source models.</p>
+
+        <p><b>Recommendations</b></p>
+
+        <p class="rec-header">Treasury (OFAC) &amp; State Department (Bureau of Counterterrorism)</p>
+        <ul class="bullets">
+          <li>Designation requires a factual nexus between the entity and a terrorist act; the evidentiary case would likely involve intelligence agencies documenting the use of a specific open-weight model in a specific attack or credible plot</li>
+        </ul>
+
+        <p class="note-italic">This pairs directly with the intelligence collection and declassification pipeline described in 1.2&ndash; that section builds the evidence base; this section is an extension of what you can do with it.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. LABS -->
+  <div class="paper-section">
+    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+      <span class="sec-num">3.</span>
+      <span class="sec-title">Shift the Calculus for Chinese AI Labs Directly</span>
+      <span class="accordion-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="section-3">
+      <div class="paper-prose">
+
+        <h3 class="subsec-title" id="s3-1">3.1 Promote open-weight safety practices through academic channels</h3>
+
+        <p><b>Background:</b> If labs are planning to open-source frontier models regardless, the next best outcome is that the models they release have robust safety measures baked in at the pre-training level.</p>
+
+        <p>Techniques like pre-training data filtering and alignment pre-training show promising early results for reducing the biosecurity risk of open-weight models, though no researched methods up to this point are fully robust (see Section 2.1). Even so, no Chinese lab has adopted any of these techniques.</p>
+
+        <p><b>The Intervention:</b> Use existing academic channels and conference networks to promote adoption of open-weight safety practices.</p>
+
+        <p>Researcher-to-researcher dialogue already happens organically; the major ML conferences ensure that the relevant people are in the same rooms every year. A targeted conversation backed by a compelling technical demonstration of what a safety-stripped open-weight model can produce, paired with evidence that pre-training safeguards can prevent misuse without degrading general capabilities, may be sufficient to shift a lab&rsquo;s calculus.</p>
+
+        <p><b>Ideal Implementing Party:</b> AI safety researchers and biosecurity experts with existing relationships to Chinese AI labs, operating through academic channels and conference networks rather than formal diplomatic channels.</p>
+
+        <h3 class="subsec-title" id="s3-2">3.2 Offer conditional compute access in exchange for closed weights</h3>
+
+        <p><b>Background:</b> In December 2025, the Trump administration announced it would allow Nvidia to export H200 chips to China, with formal regulations issued in January 2026 permitting sales to approved customers under security conditions. These decisions demonstrate the administration&rsquo;s willingness to selectively adjust export controls on a case-by-case basis; a natural next step is to introduce explicit conditionality into licensing decisions, where labs that release frontier open-weight models face an increased likelihood of license denial or revocation.</p>
+
+        <p><b>The Intervention:</b> The US could use export control licenses as direct leverage, conditioning access to advanced compute on model release practices, including favoring developers that keep frontier model weights closed. This alters the incentive structure around open-weight releases by linking them to advanced compute access (see #1 on this article).</p>
+
+        <p class="note-italic">Note: Conditional on continued export of advanced chips to China, this intervention should be implemented; however, it is probably better not to export any.</p>
+
+        <p><b>Recommendations</b></p>
+
+        <p class="rec-header">Department of Commerce (BIS)</p>
+        <ul class="bullets">
+          <li>Amend existing export control licenses to state that a company&rsquo;s decision to publicly release frontier model weights should be treated as a significant negative factor in licensing decisions, including potential denial or revocation of access to advanced chips
+            <ul class="sub">
+              <li>Note: Chinese labs could trivially game the system by maintaining separate entities (one closed to preserve chip access and one open-sourcing under a different name). BIS should define &ldquo;affiliated entity&rdquo; broadly in license terms&ndash; covering subsidiaries, shared investors, shared personnel, and shared compute infrastructure&ndash; to reduce the effectiveness of this workaround.</li>
+            </ul>
+          </li>
+          <li>Finalize pending KYC rules for U.S. cloud providers serving foreign clients, and extend the conditionality framework above to cloud compute access so that entities affiliated with labs that release designated frontier models without adequate safeguards face denial or revocation of large-scale compute purchases from U.S. providers</li>
+        </ul>
+
+        <p class="rec-header">State Department</p>
+        <ul class="bullets">
+          <li>Coordinate with allied semiconductor-adjacent governments (Netherlands/ASML, Japan/Tokyo Electron, South Korea/Samsung, etc) to encourage similar conditionality on their equipment exports</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. SUPPLY CHAIN -->
+  <div class="paper-section">
+    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+      <span class="sec-num">4.</span>
+      <span class="sec-title">Harden the Biological Supply Chain Against Models Already in Circulation</span>
+      <span class="accordion-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="section-4">
+      <div class="paper-prose">
+
+        <p>Highly capable open-source models have already been downloaded millions of times and distributed globally; we cannot un-release them. Even if every Chinese lab stopped open-sourcing tomorrow, DeepSeek R1, Qwen, Kimi k2.5, and other capable models already out there can meaningfully uplift <i>some stages</i> of bioweapon development. Therefore, even as we work to prevent future releases through Levels 1-3, we must simultaneously harden the biological supply chain against models already in circulation.</p>
+
+        <p><b>Level 4 interventions complement rather than replace efforts to stop new releases.</b> While Levels 1-3 target the source (preventing Chinese and Western labs from open-sourcing future models), Level 4 creates barriers at the point where AI guidance must translate into physical biological materials. These interventions work regardless of who releases what, since they target the supply chain itself.</p>
+
+        <p><b>Defense requires both strategies working in parallel:</b> stopping new, more capable models from being released (which would further lower barriers and enable more sophisticated attacks) while simultaneously creating friction at every stage where existing AI capabilities must interface with the physical world.</p>
+
+        <h3 class="subsec-title" id="s4-1">4.1 Mandate AI-enabled DNA synthesis screening</h3>
+
+        <p><b>Background:</b> Currently, there exists <b>no universal legal requirement</b> for gene synthesis providers to conduct background checks on clients or screen DNA sequences to ensure they&rsquo;re not dangerous pathogens. While some labs screen orders on a voluntary basis as a condition of membership in organizations like the International Gene Synthesis Consortium, compliance remains optional and inconsistent. In 2006, an investigative journalist with the Guardian was able to mail order a &ldquo;modified sequence of smallpox DNA,&rdquo; and their order was not screened by the provider since it was less than 100 nucleotides long.</p>
+
+        <p>Even in the United States, no binding legal requirements exist for DNA synthesis screening. Federal regulations were proposed in 2024 through the Framework for Nucleic Acid Synthesis Screening, but an Executive Order in May 2025 paused implementation, and no replacement framework has been issued. Moreover, despite several congressional bills attempting to mandate screening, none have passed. This regulatory gap means anyone, including those with malicious intent, can order potentially dangerous genetic sequences with minimal oversight.</p>
+
+        <p><b>The Intervention:</b> Existing screening approaches rely on sequence homology, which means matching orders against databases of known dangerous pathogens. An AI-enabled bioterrorist could circumvent this by designing functionally equivalent pathogens using synonymous codons, chimeric sequences, or entirely novel genetic constructs that retain lethality while evading database matches.</p>
+
+        <p>To address this issue, we need to implement advanced AI-powered screening that would analyze predicted protein function and evolutionary markers to flag potentially dangerous sequences.</p>
+
+        <p>Implementation requires two components: First, we must develop reliable AI screening systems capable of detecting novel pathogenic sequences that the world has never seen before; second, we must require all commercial DNA synthesis providers globally to implement this screening as a condition for legal operation.</p>
+
+        <p><b>Recommendations</b></p>
+
+        <p class="rec-header">Department of Health and Human Services / OSTP<br>
+        <span style="font-weight:normal;">(immediate actions while waiting for legislation from Congress)</span></p>
+        <ul class="bullets">
+          <li>Finalize the paused Framework for Nucleic Acid Synthesis Screening with a phased screening mandate:
+            <ul class="sub">
+              <li>Phase 1 (immediate): require sequence homology screening against databases of known dangerous pathogens, using existing methods</li>
+              <li>Phase 2 (triggered once a validated AI screening tool is available&ndash; see Congress section below): require screening that integrates AI-powered functional analysis
+                <ul class="sub">
+                  <li>Organizations like IBBIS and Fourth Eon Bio are already working on improved screening tools and international standards; Phase 2 should build on and accelerate this existing work</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Tie federal research funding to compliance: any institution receiving NIH, NSF, or DARPA grants must procure synthetic nucleic acids exclusively from providers that meet the updated screening standards
+            <ul class="sub">
+              <li>This was already proposed in the 2024 framework and creates immediate market pressure without requiring new legislation</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p class="rec-header">Congress</p>
+        <ul class="bullets">
+          <li>Pass S.3741 with these proposed amendments</li>
+        </ul>
+
+        <p class="note-italic">International coordination for synthesis screening should be pursued through the multilateral channels described in Section 1, including the BWC and Australia Group frameworks.</p>
+
+        <h3 class="subsec-title" id="s4-2">4.2 Implement know-your-customer requirements for cloud laboratories and contract research organizations</h3>
+
+        <p><b>Background:</b> The standard objection to AI-driven bioweapons risk is that knowledge alone is not enough&ndash; you still need hands-on laboratory skills, the &ldquo;tacit knowledge&rdquo; that can only be acquired through years of physical practice (hence Active Site&rsquo;s uplift study). Knowing <i>how</i> to culture a pathogen is different from being able to do it reliably. This barrier has historically been one of the strongest defenses against non-state bioweapons development.</p>
+
+        <p>Unfortunately, cloud laboratories threaten to significantly erode this barrier. Services like Emerald Cloud Lab allow anyone to design experiments in software and have them executed by robotic systems in a physical facility, remotely, without ever entering a lab. ECL requires no coding experience; internal estimates suggest relatively short onboarding periods for novice users. An AI system that can design a bioweapons protocol and a cloud lab that can execute it are, individually, semi-manageable risks; together, they could materially increase the risk of misuse.</p>
+
+        <p>Despite this, cloud labs currently operate with no standardized customer screening. Contract research organizations (CROs) create a similar vulnerability. CROs provide specialized research services and can help their clients with everything from compound synthesis to biological assays. A malicious actor could potentially decompose a bioweapons development project into seemingly innocuous components and outsource them to different CROs, each unaware of the larger program.</p>
+
+        <p><b>The Intervention:</b> Require all cloud laboratory providers and contract research organizations to implement know-your-customer screening before granting access to experiment execution as a condition of legal operation. Providers should be required to log all experimental workflows and flag protocols involving select agents or sequences of concern, with automated screening that mirrors (and integrates with) the DNA synthesis screening proposed in 4.1. Also establish RAND&rsquo;s proposed Cloud Lab Security Consortium modeled on the IGSC.</p>
+
+        <p><b>Recommendations</b></p>
+
+        <p class="rec-header">Department of Health and Human Services</p>
+        <ul class="bullets">
+          <li>Issue rulemaking requiring all U.S.-based cloud laboratory providers and CROs to verify identity, institutional affiliation, and stated research purpose of every user before granting access to experiment execution
+            <ul class="sub">
+              <li>Model this on existing Select Agent Program registration requirements</li>
+            </ul>
+          </li>
+          <li>Require cloud lab providers and CROs to log all experimental workflows and flag protocols involving select agents, sequences of concern, or pathogen-adjacent procedures, with automated screening that integrates with the DNA synthesis screening framework proposed in 4.1</li>
+        </ul>
+
+        <p class="rec-header">NIST (National Institute of Standards and Technology)</p>
+        <ul class="bullets">
+          <li>Develop standardized KYC and biosecurity screening standards specifically for cloud laboratories and CROs, defining:
+            <ul class="sub">
+              <li>Minimum identity verification thresholds</li>
+              <li>Prohibited experiment categories</li>
+              <li>Escalation procedures when flagged protocols are detected</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p class="rec-header">Federal Funding Agencies (National Institutes of Health, National Science Foundation, DARPA)</p>
+        <ul class="bullets">
+          <li>Condition federal research grants on use of cloud labs and CROs that implement baseline KYC screening, using interim agency guidance while NIST develops formal standards (the same procurement-based lever proposed for DNA synthesis screening in 4.1)
+            <ul class="sub">
+              <li>For CROs specifically, this includes Chinese and Indian providers that cannot demonstrate equivalent customer verification standards; effectively creates a prohibited suppliers list of non-compliant overseas providers</li>
+              <li>Creates immediate market pressure before binding regulation is finalized</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p class="rec-header">Congress</p>
+        <ul class="bullets">
+          <li>Pass legislation mandating KYC screening for all U.S.-based cloud laboratory providers and CROs as a condition of legal operation, regardless of whether they serve federally funded researchers</li>
+        </ul>
+
+        <p class="rec-header">International Coordination</p>
+        <ul class="bullets">
+          <li>Support the development of a Cloud Lab Security Consortium (proposed by RAND), modeled on the International Gene Synthesis Consortium</li>
+          <li>Work with allied governments to standardize CRO KYC requirements, reducing the regulatory arbitrage advantage of non-compliant overseas providers</li>
+        </ul>
+
+        <p class="note-italic">(!) Note: The KYC framework described here for cloud labs should also extend to DNA synthesis providers, which currently face no standardized customer screening requirements either.</p>
+
+      </div>
+    </div>
+  </div>
 
 </main>
 
 <footer>
-  <div style="max-width: var(--max-w); margin: 0 auto;">
-  </div>
+  <div style="max-width: var(--max-w); margin: 0 auto;"></div>
 </footer>
+
+<script>
+  // ── State ──
+  const answers = {};
+
+  // ── All intervention cards ──
+  const interventions = {
+    '1.1': { num: '1.1', label: 'CCP / Diplomatic', title: 'Bilateral diplomacy on biosecurity risks', actor: 'State Dept / Executive Branch / DTRA', href: '#s1-1', section: 'section-1' },
+    '1.2': { num: '1.2', label: 'CCP / Diplomatic', title: 'Publicize misuse to generate international pressure', actor: 'Intelligence Community / NSC', href: '#s1-2', section: 'section-1' },
+    '2.1': { num: '2.1', label: 'US & Allies', title: 'Fund research into robust open-weight safeguards', actor: 'NSF / DARPA / Philanthropy', href: '#s2-1', section: 'section-2' },
+    '2.2': { num: '2.2', label: 'US & Allies', title: 'Implement conditional bans on Chinese open-weight models', actor: 'Dept of Commerce (BIS) / State Dept', href: '#s2-2', section: 'section-2' },
+    '2.3': { num: '2.3', label: 'US & Allies', title: 'Reduce individual adoption via public risk communication', actor: 'CISA / NIST / State Dept', href: '#s2-3', section: 'section-2' },
+    '2.4': { num: '2.4', label: 'US & Allies', title: 'Sanction individuals under counterterrorism authorities', actor: 'Treasury (OFAC) / State Dept', href: '#s2-4', section: 'section-2' },
+    '3.1': { num: '3.1', label: 'Labs / Academia', title: 'Promote open-weight safety practices via academic channels', actor: 'AI safety researchers / Biosecurity experts', href: '#s3-1', section: 'section-3' },
+    '3.2': { num: '3.2', label: 'Labs / Academia', title: 'Conditional compute access in exchange for closed weights', actor: 'Dept of Commerce (BIS) / State Dept', href: '#s3-2', section: 'section-3' },
+  };
+
+  function answer(q, val) {
+    answers[q] = val;
+
+    // Update button styles
+    const card = document.getElementById('q' + q);
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    event.target.classList.add('selected');
+
+    // Short delay then advance
+    setTimeout(() => {
+      if (q === 1) {
+        showQ(2);
+      } else if (q === 2) {
+        showQ(3);
+      } else if (q === 3) {
+        showResults();
+      }
+    }, 220);
+  }
+
+  function showQ(n) {
+    // Update progress
+    document.getElementById('pip-' + (n-1)).classList.remove('active');
+    document.getElementById('pip-' + (n-1)).classList.add('done');
+    if (n < 3) document.getElementById('pip-' + n).classList.add('active');
+
+    // Update trail
+    const trail = document.getElementById('answer-trail');
+    trail.style.display = 'flex';
+    const qLabels = { 1: 'Safeguards feasible?', 2: 'Diplomacy viable?', 3: 'Misuse documented?' };
+    const ansLabels = { yes: 'Yes', no: 'No', unclear: 'Unclear', 'yes-solvable': 'Yes', 'no-not-near-term': 'No' };
+    const chip = document.createElement('span');
+    chip.className = 'answer-chip';
+    chip.textContent = qLabels[n-1] + ' → ' + (answers[n-1] === 'yes' ? 'Yes' : answers[n-1] === 'no' ? 'No' : 'Unclear');
+    trail.appendChild(chip);
+
+    document.getElementById('q' + n).style.display = 'block';
+    document.getElementById('q' + n).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function showResults() {
+    // Update progress
+    document.getElementById('pip-2').classList.remove('active');
+    document.getElementById('pip-2').classList.add('done');
+
+    // Update trail for Q3
+    const trail = document.getElementById('answer-trail');
+    const chip = document.createElement('span');
+    chip.className = 'answer-chip';
+    chip.textContent = 'Misuse documented? → ' + (answers[3] === 'yes' ? 'Yes' : 'No');
+    trail.appendChild(chip);
+
+    // Compute recommendations
+    const recs = computeRecs();
+
+    // Render
+    const grid = document.getElementById('rec-grid');
+    grid.innerHTML = '';
+    recs.forEach(id => {
+      const i = interventions[id];
+      const a = document.createElement('a');
+      a.className = 'rec-card';
+      a.href = i.href;
+      a.onclick = () => openSection(i.section);
+      a.innerHTML = `<div class="rc-num">${i.num} &mdash; ${i.label}</div><div class="rc-title">${i.title}</div><div class="rc-actor">${i.actor}</div>`;
+      grid.appendChild(a);
+    });
+
+    // Summary text
+    document.getElementById('results-summary').textContent = summaryText();
+
+    // Show panel
+    const panel = document.getElementById('results');
+    panel.classList.add('visible');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function computeRecs() {
+    const q1 = answers[1]; // yes / no / unclear
+    const q2 = answers[2]; // yes / no
+    const q3 = answers[3]; // yes / no
+
+    const recs = new Set();
+
+    // Q1: safeguards feasible?
+    // Always fund 2.1 — already in "always" block, but also push it to top if q1=yes
+    // If q1=yes, safeguards are the main path
+    // If q1=no or unclear, policy levers are needed now
+
+    // Q2: diplomacy viable?
+    if (q2 === 'yes') {
+      recs.add('1.1'); // bilateral diplomacy
+      recs.add('3.1'); // academic channels
+      recs.add('3.2'); // conditional compute
+    }
+
+    // Q3: misuse documented?
+    if (q3 === 'yes') {
+      recs.add('1.2'); // publicize misuse
+      recs.add('2.4'); // sanctions
+      recs.add('2.2'); // conditional bans (now justified)
+    } else {
+      recs.add('2.2'); // conditional bans (pressure measure)
+      recs.add('2.3'); // public risk communication
+    }
+
+    // If diplomacy not viable, lean harder on unilateral
+    if (q2 === 'no') {
+      recs.add('2.2');
+      recs.add('2.3');
+      recs.add('3.2'); // compute leverage still works without diplomacy
+    }
+
+    // If safeguards seem feasible, prioritize that path clearly
+    if (q1 === 'yes') {
+      // 2.1 is in always block; no extra recs needed beyond core unilateral
+    }
+
+    return Array.from(recs);
+  }
+
+  function summaryText() {
+    const q1 = answers[1];
+    const q2 = answers[2];
+    const q3 = answers[3];
+
+    let parts = [];
+    if (q1 === 'yes') parts.push('safeguards are a viable long-term solution');
+    if (q1 === 'no') parts.push('policy restrictions are needed now');
+    if (q2 === 'yes') parts.push('diplomacy is on the table');
+    if (q2 === 'no') parts.push('unilateral action is the primary lever');
+    if (q3 === 'yes') parts.push('a confirmed incident enables the full coercive toolkit');
+    if (q3 === 'no') parts.push('preventive measures apply');
+
+    return parts.length ? parts.map((p, i) => i === 0 ? p.charAt(0).toUpperCase() + p.slice(1) : p).join('; ') + '.' : '';
+  }
+
+  function reset() {
+    // Clear answers
+    Object.keys(answers).forEach(k => delete answers[k]);
+
+    // Reset UI
+    ['q1','q2','q3'].forEach((id, i) => {
+      const el = document.getElementById(id);
+      el.style.display = i === 0 ? 'block' : 'none';
+      el.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    });
+
+    // Reset progress
+    ['pip-0','pip-1','pip-2'].forEach((id, i) => {
+      const el = document.getElementById(id);
+      el.classList.remove('done','active');
+      if (i === 0) el.classList.add('active');
+    });
+
+    // Reset trail
+    const trail = document.getElementById('answer-trail');
+    trail.innerHTML = '';
+    trail.style.display = 'none';
+
+    // Hide results
+    document.getElementById('results').classList.remove('visible');
+  }
+
+  // ── Accordion ──
+  function toggleAccordion(trigger) {
+    const body = trigger.nextElementSibling;
+    const isOpen = trigger.classList.contains('open');
+
+    trigger.classList.toggle('open', !isOpen);
+    body.classList.toggle('open', !isOpen);
+  }
+
+  function openSection(sectionId) {
+    const body = document.getElementById(sectionId);
+    if (body && !body.classList.contains('open')) {
+      body.classList.add('open');
+      body.previousElementSibling.classList.add('open');
+    }
+  }
+</script>
 
 </body>
 </html>
