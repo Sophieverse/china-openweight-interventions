@@ -109,12 +109,21 @@
       line-height: 1.2;
       color: var(--text);
       margin-bottom: 0.65rem;
-      background: linear-gradient(rgba(139,26,26,0.18), rgba(139,26,26,0.18)) no-repeat left center;
-      background-size: 0% 42%;
-      animation: highlightSweep 0.9s cubic-bezier(0.4,0,0.2,1) 0.5s forwards;
+      position: relative;
+      display: inline-block;
     }
-    @keyframes highlightSweep {
-      to { background-size: 100% 42%; }
+    h1::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      height: 2.5px;
+      width: 0;
+      background: #e02020;
+      animation: lineSweep 0.75s cubic-bezier(0.4,0,0.2,1) 0.4s forwards;
+    }
+    @keyframes lineSweep {
+      to { width: 100%; }
     }
     .subtitle {
       color: var(--muted);
