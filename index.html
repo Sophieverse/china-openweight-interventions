@@ -131,6 +131,10 @@
     @keyframes lineSweep {
       to { width: 100%; }
     }
+    @keyframes dnaRotate {
+      from { transform: rotateY(0deg); }
+      to   { transform: rotateY(360deg); }
+    }
     .subtitle {
       color: var(--muted);
       font-size: 1rem;
@@ -218,7 +222,7 @@
     /* Footnote tooltips */
     .fn-ref {
       position: relative;
-      cursor: help;
+      cursor: default;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -826,31 +830,20 @@
   <!-- 4. SUPPLY CHAIN -->
   <div class="paper-section" id="anchor-4">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-      <!-- Section 4: DNA double helix, twisting in place -->
-      <span class="sec-icon">
-        <svg width="20" height="22" viewBox="0 0 20 22" fill="none">
-          <!-- Strand A: morphs between left-phase and right-phase -->
-          <path d="M3,0 C17,3 3,8 17,11 C3,14 17,19 3,22" stroke="#8b1a1a" stroke-width="1.5" fill="none" stroke-linecap="round">
-            <animate attributeName="d"
-              values="M3,0 C17,3 3,8 17,11 C3,14 17,19 3,22;
-                      M17,0 C3,3 17,8 3,11 C17,14 3,19 17,22;
-                      M3,0 C17,3 3,8 17,11 C3,14 17,19 3,22"
-              dur="3s" repeatCount="indefinite" calcMode="spline"
-              keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
-          </path>
-          <!-- Strand B: opposite phase -->
-          <path d="M17,0 C3,3 17,8 3,11 C17,14 3,19 17,22" stroke="#b8b0a6" stroke-width="1.5" fill="none" stroke-linecap="round">
-            <animate attributeName="d"
-              values="M17,0 C3,3 17,8 3,11 C17,14 3,19 17,22;
-                      M3,0 C17,3 3,8 17,11 C3,14 17,19 3,22;
-                      M17,0 C3,3 17,8 3,11 C17,14 3,19 17,22"
-              dur="3s" repeatCount="indefinite" calcMode="spline"
-              keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
-          </path>
-          <!-- Crossbars -->
-          <line x1="4" y1="5.5"  x2="16" y2="5.5"  stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
-          <line x1="4" y1="11"   x2="16" y2="11"   stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
-          <line x1="4" y1="16.5" x2="16" y2="16.5" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+      <!-- Section 4: DNA double helix, rotates in place -->
+      <span class="sec-icon" style="perspective:120px;">
+        <svg width="20" height="22" viewBox="0 0 20 22" fill="none"
+             style="animation:dnaRotate 3s linear infinite; transform-origin:50% 50%;">
+          <!-- Strand A -->
+          <path d="M3,0 C17,3 3,8 17,11 C3,14 17,19 3,22"
+                stroke="#8b1a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Strand B -->
+          <path d="M17,0 C3,3 17,8 3,11 C17,14 3,19 17,22"
+                stroke="#b8b0a6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Crossbars at points of maximum strand separation -->
+          <line x1="4"  y1="2"  x2="16" y2="2"  stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+          <line x1="4"  y1="11" x2="16" y2="11" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+          <line x1="4"  y1="20" x2="16" y2="20" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
         </svg>
       </span>
       <span class="sec-num">4.</span>
