@@ -272,6 +272,26 @@
 
     .note-italic { font-style: italic; margin: 0.75rem 0 1.1rem; font-size: 0.92rem; color: var(--muted); }
 
+    .callout {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 1.25rem 0 1.5rem;
+      padding: 0.85rem 1.1rem;
+      background: #f5f3ef;
+      border-left: 3px solid var(--border);
+      border-radius: 3px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .callout-icon {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+
     .footnote {
       font-size: 0.82rem;
       color: var(--muted);
@@ -467,7 +487,14 @@
 
     <p><b>Open-weight models <a href="https://thecounterfactual.substack.com/p/the-open-weight-problem" target="_blank">have no such layer.</a></b> Once weights are downloaded, they can be run locally with no oversight and no logging, safety fine-tuning can be stripped with minimal technical effort, and the model can be fine-tuned on domain-specific data to become dramatically more capable in exactly the areas we&rsquo;d most want to restrict. There is no API to monitor, no company to refuse the request, and no recourse once the weights are out.</p>
 
-    <p class="note-italic">[For a fuller treatment of why open-weight models specifically are a biosecurity problem, <a href="https://thecounterfactual.substack.com/p/the-open-weight-problem" target="_blank">see here</a>.]</p>
+    <div class="callout">
+      <svg class="callout-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.4"/>
+        <line x1="8" y1="7" x2="8" y2="11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="8" cy="4.5" r="0.9" fill="currentColor"/>
+      </svg>
+      <span>For a fuller treatment of why open-weight models specifically are a biosecurity problem, <a href="https://thecounterfactual.substack.com/p/the-open-weight-problem" target="_blank">see here</a>.</span>
+    </div>
 
     <p>The best open-weight models in the world are Chinese&ndash; and unlike the top Western labs, Chinese AI companies are still releasing them. (Here are <a href="https://firstscattering.com/p/why-does-china-open-source-their" target="_blank">our best guesses for why</a> Chinese AI companies open-weight their models.)</p>
 
