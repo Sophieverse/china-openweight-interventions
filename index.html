@@ -312,9 +312,18 @@
     /* ── MINI GRAPHICS ── */
     .sec-icon {
       flex-shrink: 0;
-      margin-right: 0.6rem;
+      margin-right: 0.75rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
-    .sec-icon svg { display: block; }
+    .sec-icon svg { display: block; width: 20px; height: auto; }
 
     @keyframes ringPulse {
       0%, 100% { opacity: 0.12; r: 32; }
@@ -387,7 +396,7 @@
 
 <header class="site-header">
   <div class="site-label">Policy Analysis &mdash; AI Safety &amp; Biosecurity</div>
-  <h1><span class="hl hl1">Uncensorable,</span> <span class="hl hl2">Unmonitorable,</span> <span class="hl hl3">Uncontrollable:</span> U.S. Policy Options for Open-Weight Biosecurity Risk</h1>
+  <h1><span class="hl hl1">Uncensorable</span>, <span class="hl hl2">Unmonitorable</span>, <span class="hl hl3">Uncontrollable</span>: U.S. Policy Options for Open-Weight Biosecurity Risk</h1>
   <p class="subtitle">China is releasing AI it can&rsquo;t control. Here&rsquo;s why that&rsquo;s a biosecurity problem, and what the U.S. can do about it.</p>
   <div class="meta">Published April 10, 2026 | Last Updated April 10, 2026</div>
 
@@ -768,7 +777,7 @@
   <div class="paper-section" id="anchor-4">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
       <!-- Section 4: DNA double helix, scrolling -->
-      <span class="sec-icon" style="overflow:hidden; height:28px; display:block; width:22px;">
+      <span class="sec-icon">
         <svg width="22" height="56" viewBox="0 0 22 56" fill="none" style="animation: dnaScroll 3.5s linear infinite; display:block;">
           <!-- Strand A -->
           <path d="M11,0 Q20,7 11,14 Q2,21 11,28 Q20,35 11,42 Q2,49 11,56" stroke="#8b1a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
