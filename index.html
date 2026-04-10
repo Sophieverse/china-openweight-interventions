@@ -830,20 +830,24 @@
   <!-- 4. SUPPLY CHAIN -->
   <div class="paper-section" id="anchor-4">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-      <!-- Section 4: DNA double helix, rotates in place -->
-      <span class="sec-icon" style="perspective:120px;">
-        <svg width="20" height="22" viewBox="0 0 20 22" fill="none"
-             style="animation:dnaRotate 3s linear infinite; transform-origin:50% 50%;">
-          <!-- Strand A -->
-          <path d="M3,0 C17,3 3,8 17,11 C3,14 17,19 3,22"
-                stroke="#8b1a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- Strand B -->
-          <path d="M17,0 C3,3 17,8 3,11 C17,14 3,19 17,22"
-                stroke="#b8b0a6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- Crossbars at points of maximum strand separation -->
-          <line x1="4"  y1="2"  x2="16" y2="2"  stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
-          <line x1="4"  y1="11" x2="16" y2="11" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
-          <line x1="4"  y1="20" x2="16" y2="20" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+      <!-- Section 4: DNA double helix, spins in place -->
+      <span class="sec-icon" style="perspective:140px;">
+        <svg width="20" height="24" viewBox="0 0 20 24" fill="none"
+             style="animation:dnaRotate 3.5s linear infinite; transform-origin:50% 50%;">
+          <!-- Strand A: two full S-curves, red -->
+          <path d="M2,0 C18,3 2,9 18,12 C2,15 18,21 2,24"
+                stroke="#8b1a1a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <!-- Strand B: opposite phase, gray -->
+          <path d="M18,0 C2,3 18,9 2,12 C18,15 2,21 18,24"
+                stroke="#a09890" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <!-- Rungs: spaced every ~4px, denser to read as a ladder -->
+          <line x1="3"  y1="1.5" x2="17" y2="1.5" stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round"/>
+          <line x1="3"  y1="5"   x2="17" y2="5"   stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round" stroke-opacity="0.5"/>
+          <line x1="3"  y1="9"   x2="17" y2="9"   stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round"/>
+          <line x1="3"  y1="12"  x2="17" y2="12"  stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round" stroke-opacity="0.5"/>
+          <line x1="3"  y1="15"  x2="17" y2="15"  stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round"/>
+          <line x1="3"  y1="19"  x2="17" y2="19"  stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round" stroke-opacity="0.5"/>
+          <line x1="3"  y1="22.5" x2="17" y2="22.5" stroke="#c8c3bc" stroke-width="1.1" stroke-linecap="round"/>
         </svg>
       </span>
       <span class="sec-num">4.</span>
