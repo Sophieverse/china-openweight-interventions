@@ -170,10 +170,9 @@
     .accordion-body {
       display: none;
       padding: 1.75rem 0 2rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 0.25rem;
     }
     .accordion-body.open { display: block; }
+    .accordion-trigger.after-open { border-top-color: var(--red); }
 
     /* Paper prose */
     .paper-prose p { margin-bottom: 1.15rem; line-height: 1.78; }
@@ -378,67 +377,35 @@
 
   <!-- Header: open lock → spreading access -->
   <div class="header-art">
-    <svg width="320" height="72" viewBox="0 0 320 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Open padlock -->
-      <rect x="8" y="32" width="24" height="20" rx="2.5" stroke="#8b1a1a" stroke-width="1.4"/>
-      <!-- shackle open (arc swung right) -->
-      <path d="M12 32 L12 23 Q12 16 20 16 Q28 16 28 23" stroke="#8b1a1a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-      <!-- keyhole -->
-      <circle cx="20" cy="40" r="2.5" fill="#8b1a1a">
-        <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/>
+    <svg width="320" height="68" viewBox="0 0 320 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Danger zone fill above threshold -->
+      <rect x="0" y="0" width="320" height="13" fill="#8b1a1a" fill-opacity="0.05"/>
+      <!-- Threshold line -->
+      <line x1="0" y1="13" x2="320" y2="13" stroke="#8b1a1a" stroke-width="0.85" stroke-dasharray="5 3.5" opacity="0.45"/>
+      <!-- Threshold label -->
+      <text x="8" y="10" font-size="6.5" fill="#8b1a1a" font-family="Courier New,monospace" letter-spacing="0.04em" opacity="0.55">biosecurity threshold</text>
+
+      <!-- Trajectory curve: slow rise then steep approach to threshold -->
+      <path d="M16,60 C70,60 160,56 298,16" stroke="#b8b2aa" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Red overlay for the final steep segment near threshold -->
+      <path d="M210,38 C248,28 278,20 298,16" stroke="#8b1a1a" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+
+      <!-- Milestone dots along curve (gray→red gradient by position) -->
+      <circle cx="16"  cy="60" r="2.2" fill="#cdc8c1"/>
+      <circle cx="68"  cy="59" r="2.4" fill="#bdb7af"/>
+      <circle cx="128" cy="54" r="2.6" fill="#a89f97"/>
+      <circle cx="200" cy="40" r="3"   fill="#9b8880"/>
+      <!-- Frontier dot: pulses -->
+      <circle cx="298" cy="16" r="3.5" fill="#8b1a1a">
+        <animate attributeName="r"            values="3.5;5.2;3.5" dur="2.8s" repeatCount="indefinite"/>
+        <animate attributeName="fill-opacity" values="1;0.45;1"   dur="2.8s" repeatCount="indefinite"/>
       </circle>
-      <rect x="19" y="40" width="2" height="5" rx="1" fill="#8b1a1a">
-        <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/>
-      </rect>
 
-      <!-- Arrow -->
-      <line x1="40" y1="42" x2="72" y2="42" stroke="#c8c3bc" stroke-width="1.2" stroke-linecap="round"/>
-      <polyline points="67,37 73,42 67,47" stroke="#c8c3bc" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Projected continuation past threshold (dashed) -->
+      <path d="M298,16 Q310,8 330,4" stroke="#8b1a1a" stroke-width="1" stroke-dasharray="3 2.5" stroke-linecap="round" opacity="0.3"/>
 
-      <!-- Radial spread: center node -->
-      <circle cx="100" cy="42" r="5.5" fill="#8b1a1a"/>
-      <!-- Pulse ring -->
-      <circle cx="100" cy="42" r="32" fill="none" stroke="#8b1a1a" stroke-width="1">
-        <animate attributeName="r" values="8;26;8" dur="3.5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.5;0;0.5" dur="3.5s" repeatCount="indefinite"/>
-      </circle>
-
-      <!-- Spokes to outer nodes -->
-      <line x1="100" y1="42" x2="155" y2="14" stroke="#dedad5" stroke-width="1"/>
-      <line x1="100" y1="42" x2="162" y2="42" stroke="#dedad5" stroke-width="1"/>
-      <line x1="100" y1="42" x2="155" y2="70" stroke="#dedad5" stroke-width="1"/>
-      <line x1="155" y1="14" x2="218" y2="8"  stroke="#e8e4df" stroke-width="0.8"/>
-      <line x1="155" y1="14" x2="220" y2="22" stroke="#e8e4df" stroke-width="0.8"/>
-      <line x1="162" y1="42" x2="220" y2="36" stroke="#e8e4df" stroke-width="0.8"/>
-      <line x1="162" y1="42" x2="220" y2="50" stroke="#e8e4df" stroke-width="0.8"/>
-      <line x1="155" y1="70" x2="218" y2="60" stroke="#e8e4df" stroke-width="0.8"/>
-      <line x1="155" y1="70" x2="218" y2="72" stroke="#e8e4df" stroke-width="0.8"/>
-
-      <!-- Mid nodes -->
-      <circle cx="155" cy="14" r="4" fill="#b8b2aa"/>
-      <circle cx="162" cy="42" r="4" fill="#b8b2aa"/>
-      <circle cx="155" cy="70" r="4" fill="#b8b2aa"/>
-
-      <!-- Outer nodes -->
-      <circle cx="218" cy="8"  r="3" fill="#cdc8c1"/>
-      <circle cx="220" cy="22" r="3" fill="#cdc8c1"/>
-      <circle cx="220" cy="36" r="3" fill="#cdc8c1"/>
-      <circle cx="220" cy="50" r="3" fill="#cdc8c1"/>
-      <circle cx="218" cy="60" r="3" fill="#cdc8c1"/>
-      <circle cx="218" cy="72" r="3" fill="#cdc8c1"/>
-
-      <!-- Far scatter nodes -->
-      <circle cx="270" cy="14" r="2" fill="#dedad5"/>
-      <circle cx="285" cy="30" r="2" fill="#dedad5"/>
-      <circle cx="278" cy="46" r="2" fill="#dedad5"/>
-      <circle cx="290" cy="60" r="2" fill="#dedad5"/>
-      <line x1="220" y1="22" x2="270" y2="14" stroke="#eeeae6" stroke-width="0.6"/>
-      <line x1="220" y1="36" x2="285" y2="30" stroke="#eeeae6" stroke-width="0.6"/>
-      <line x1="220" y1="50" x2="278" y2="46" stroke="#eeeae6" stroke-width="0.6"/>
-      <line x1="218" y1="60" x2="290" y2="60" stroke="#eeeae6" stroke-width="0.6"/>
-
-      <!-- Label -->
-      <text x="20" y="62" font-size="7" fill="#8b1a1a" font-family="Courier New,monospace" text-anchor="middle" letter-spacing="0.05em" opacity="0.7">open</text>
+      <!-- Capability label (bottom-left) -->
+      <text x="8" y="67" font-size="6.5" fill="#a09890" font-family="Courier New,monospace" letter-spacing="0.04em" opacity="0.65">AI capability →</text>
     </svg>
   </div>
 </header>
@@ -454,7 +421,9 @@
 
     <p>Historically, technical knowledge has been the limiting factor. When Aum Shinrikyo tried to weaponize anthrax in 1993, they had motivation and funding but lacked expertise&ndash; wrong bacterial strain, poor concentrations, equipment failures. Knowledge gaps killed their program. AI is quickly eroding that constraint. Publicly available models like o3 already <a href="https://www.virologytest.ai/" target="_blank">outperform 94% of virology experts</a> on laboratory protocol questions, even on questions directly relevant to the experts&rsquo; specialties. That benchmark performance hasn&rsquo;t yet translated cleanly into end-to-end weapons development guidance, but <b><a href="https://www.axios.com/2025/06/18/openai-bioweapons-risk" target="_blank">the trajectory is clear.</a></b> Models are advancing toward the ability to provide expert-level virological guidance on demand, anonymously, and at scale. Anthropic&rsquo;s own internal <a href="https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf" target="_blank">bioweapons acquisition uplift trials</a> found that Claude Opus 4 enhanced human performance by 2.53x on relevant tasks, enough to trigger activation of <a href="https://www.cnbc.com/2025/05/23/anthropic-claude-4-weapons.html" target="_blank">AI Safety Level 3</a>.</p>
 
-    <p>For <b>closed-weight models</b>, this risk is at least partially manageable. Input-output classifiers, safety fine-tuning, and know-your-customer requirements can intercept most non-sophisticated actors before they get actionable guidance. These mitigations are imperfect&ndash; models remain vulnerable to jailbreaks, and <a href="https://www.rand.org/pubs/research_reports/RRA2977-1.html" target="_blank">red-teaming studies</a> have repeatedly demonstrated that they can be coaxed into providing dangerous guidance&ndash; but they represent a meaningful layer of friction. <b>Open-weight models <a href="https://thecounterfactual.substack.com/p/the-open-weight-problem" target="_blank">have no such layer.</a></b> Once released, they can be downloaded, stripped of safety fine-tuning, and run locally with no oversight, no logging, and no recourse.</p>
+    <p>For <b>closed-weight models</b>, this risk is at least partially manageable. Input-output classifiers, safety fine-tuning, and know-your-customer requirements can intercept most non-sophisticated actors before they get actionable guidance. These mitigations are imperfect&ndash; models remain vulnerable to jailbreaks, and <a href="https://www.rand.org/pubs/research_reports/RRA2977-1.html" target="_blank">red-teaming studies</a> have repeatedly demonstrated that they can be coaxed into providing dangerous guidance&ndash; but they represent a meaningful layer of friction.</p>
+
+    <p><b>Open-weight models <a href="https://thecounterfactual.substack.com/p/the-open-weight-problem" target="_blank">have no such layer.</a></b> Once released, they can be downloaded, stripped of safety fine-tuning, and run locally with no oversight, no logging, and no recourse.</p>
 
     <p>The best open-weight models in the world are Chinese (here are <a href="https://firstscattering.com/p/why-does-china-open-source-their" target="_blank">our best guesses for why</a> Chinese AI companies open-weight their models).</p>
 
@@ -956,6 +925,10 @@
     const isOpen = trigger.classList.contains('open');
     trigger.classList.toggle('open', !isOpen);
     body.classList.toggle('open', !isOpen);
+    // Mark the next section's trigger so its top border turns red when this section is open
+    const nextSection = trigger.closest('.paper-section').nextElementSibling;
+    const nextTrigger = nextSection && nextSection.querySelector('.accordion-trigger');
+    if (nextTrigger) nextTrigger.classList.toggle('after-open', !isOpen);
   }
 
   function goTo(sectionId, subsectionId) {
@@ -963,7 +936,12 @@
     const body = document.getElementById(sectionId);
     if (body && !body.classList.contains('open')) {
       body.classList.add('open');
-      body.previousElementSibling.classList.add('open');
+      const thisTrigger = body.previousElementSibling;
+      thisTrigger.classList.add('open');
+      // Mark next section's trigger
+      const nextSection = thisTrigger.closest('.paper-section').nextElementSibling;
+      const nextTrigger = nextSection && nextSection.querySelector('.accordion-trigger');
+      if (nextTrigger) nextTrigger.classList.add('after-open');
     }
     // Scroll to subsection or section after a short delay (allow accordion to open)
     const targetId = subsectionId || sectionId.replace('section-', 'anchor-');
