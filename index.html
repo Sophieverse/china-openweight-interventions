@@ -269,30 +269,30 @@
     <div class="paper-toc">
       <ol start="0">
         <li>Introduction &amp; Intervention Overview</li>
-        <li>Convince the Chinese Government to Restrict Open-Weight Releases
+        <li><a href="#anchor-1" onclick="goTo('section-1')">Convince the Chinese Government to Restrict Open-Weight Releases</a>
           <ol class="sub">
-            <li>Communicate biosecurity risks through bilateral diplomacy</li>
-            <li>Publicize misuse to generate international pressure</li>
+            <li><a href="#s1-1" onclick="goTo('section-1','s1-1')">1.1 Communicate biosecurity risks through bilateral diplomacy</a></li>
+            <li><a href="#s1-2" onclick="goTo('section-1','s1-2')">1.2 Publicize misuse to generate international pressure</a></li>
           </ol>
         </li>
-        <li>Limit Access Through Unilateral Action
+        <li><a href="#anchor-2" onclick="goTo('section-2')">Limit Access Through Unilateral Action</a>
           <ol class="sub">
-            <li>Fund research into robust safeguards</li>
-            <li>Implement conditional bans on Chinese open-weight models</li>
-            <li>Reduce individual adoption through public risk communication</li>
-            <li>Sanction individuals and designate companies</li>
+            <li><a href="#s2-1" onclick="goTo('section-2','s2-1')">2.1 Fund research into robust safeguards</a></li>
+            <li><a href="#s2-2" onclick="goTo('section-2','s2-2')">2.2 Implement conditional bans on Chinese open-weight models</a></li>
+            <li><a href="#s2-3" onclick="goTo('section-2','s2-3')">2.3 Reduce individual adoption through public risk communication</a></li>
+            <li><a href="#s2-4" onclick="goTo('section-2','s2-4')">2.4 Sanction individuals and designate companies</a></li>
           </ol>
         </li>
-        <li>Shift the Calculus for Chinese AI Labs Directly
+        <li><a href="#anchor-3" onclick="goTo('section-3')">Shift the Calculus for Chinese AI Labs Directly</a>
           <ol class="sub">
-            <li>Researcher-to-researcher persuasion through academic channels</li>
-            <li>Offer conditional compute access in exchange for closed weights</li>
+            <li><a href="#s3-1" onclick="goTo('section-3','s3-1')">3.1 Researcher-to-researcher persuasion through academic channels</a></li>
+            <li><a href="#s3-2" onclick="goTo('section-3','s3-2')">3.2 Offer conditional compute access in exchange for closed weights</a></li>
           </ol>
         </li>
-        <li>Harden the Biological Supply Chain
+        <li><a href="#anchor-4" onclick="goTo('section-4')">Harden the Biological Supply Chain</a>
           <ol class="sub">
-            <li>Mandate AI-enabled DNA synthesis screening</li>
-            <li>KYC requirements for cloud laboratories and CROs</li>
+            <li><a href="#s4-1" onclick="goTo('section-4','s4-1')">4.1 Mandate AI-enabled DNA synthesis screening</a></li>
+            <li><a href="#s4-2" onclick="goTo('section-4','s4-2')">4.2 KYC requirements for cloud laboratories and CROs</a></li>
           </ol>
         </li>
       </ol>
@@ -356,7 +356,7 @@
   <div style="height: 2rem;"></div>
 
   <!-- 1. CCP -->
-  <div class="paper-section">
+  <div class="paper-section" id="anchor-1">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
       <span class="sec-num">1.</span>
       <span class="sec-title">Convince the Chinese Government to Restrict Open-Weight Releases</span>
@@ -435,7 +435,7 @@
   </div>
 
   <!-- 2. US & ALLIES -->
-  <div class="paper-section">
+  <div class="paper-section" id="anchor-2">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
       <span class="sec-num">2.</span>
       <span class="sec-title">Limit Access to Chinese Open-Weight Models Through Unilateral Action</span>
@@ -557,7 +557,7 @@
   </div>
 
   <!-- 3. LABS -->
-  <div class="paper-section">
+  <div class="paper-section" id="anchor-3">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
       <span class="sec-num">3.</span>
       <span class="sec-title">Shift the Calculus for Chinese AI Labs Directly</span>
@@ -609,7 +609,7 @@
   </div>
 
   <!-- 4. SUPPLY CHAIN -->
-  <div class="paper-section">
+  <div class="paper-section" id="anchor-4">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
       <span class="sec-num">4.</span>
       <span class="sec-title">Harden the Biological Supply Chain Against Models Already in Circulation</span>
@@ -736,17 +736,23 @@
   function toggleAccordion(trigger) {
     const body = trigger.nextElementSibling;
     const isOpen = trigger.classList.contains('open');
-
     trigger.classList.toggle('open', !isOpen);
     body.classList.toggle('open', !isOpen);
   }
 
-  function openSection(sectionId) {
+  function goTo(sectionId, subsectionId) {
+    // Open the accordion if not already open
     const body = document.getElementById(sectionId);
     if (body && !body.classList.contains('open')) {
       body.classList.add('open');
       body.previousElementSibling.classList.add('open');
     }
+    // Scroll to subsection or section after a short delay (allow accordion to open)
+    const targetId = subsectionId || sectionId.replace('section-', 'anchor-');
+    setTimeout(() => {
+      const target = document.getElementById(targetId) || document.getElementById(sectionId);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
   }
 </script>
 
