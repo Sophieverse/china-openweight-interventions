@@ -70,221 +70,13 @@
 
     main { max-width: var(--max-w); margin: 0 auto; padding: 2.5rem 0 6rem; }
 
-    /* ── DECISION TREE ── */
-    .tree-section {
-      margin-bottom: 3.5rem;
+    /* ── INTRO ── */
+    .intro-section {
+      margin-bottom: 2.5rem;
     }
+    .intro-section p { font-size: 0.97rem; margin-bottom: 1.1rem; }
 
-    .tree-intro {
-      margin-bottom: 1.5rem;
-    }
-    .tree-intro h2 {
-      font-size: 1.3rem;
-      color: var(--red);
-      margin-bottom: 0.4rem;
-      font-weight: normal;
-    }
-    .tree-intro p {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* Question card */
-    .question-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.75rem 2rem;
-      margin-bottom: 1rem;
-      position: relative;
-    }
-    .q-label {
-      font-family: 'Courier New', monospace;
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
-    .q-text {
-      font-size: 1.1rem;
-      color: var(--text);
-      margin-bottom: 1.25rem;
-      line-height: 1.5;
-    }
-    .q-context {
-      font-size: 0.83rem;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 1.25rem;
-    }
-    .q-buttons {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .q-btn {
-      padding: 0.55em 1.4em;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      color: var(--text);
-      font-family: 'Courier New', monospace;
-      font-size: 0.82rem;
-      cursor: pointer;
-      transition: border-color 0.15s, background 0.15s;
-    }
-    .q-btn:hover { border-color: var(--red-bright); background: var(--red-glow); }
-    .q-btn.selected { border-color: var(--red-bright); background: var(--red-glow); color: #e88; }
-
-    /* Progress bar */
-    .progress-bar {
-      display: flex;
-      gap: 0.4rem;
-      margin-bottom: 1.25rem;
-    }
-    .progress-pip {
-      height: 3px;
-      flex: 1;
-      border-radius: 2px;
-      background: var(--border);
-      transition: background 0.3s;
-    }
-    .progress-pip.done { background: var(--red); }
-    .progress-pip.active { background: var(--red-bright); }
-
-    /* Recommendation results */
-    .results-panel {
-      background: var(--surface);
-      border: 1px solid var(--red-dim);
-      border-radius: 8px;
-      padding: 1.75rem 2rem;
-      margin-top: 1rem;
-      display: none;
-    }
-    .results-panel.visible { display: block; }
-    .results-header {
-      margin-bottom: 1.25rem;
-    }
-    .results-header h3 {
-      font-size: 1rem;
-      color: var(--red);
-      margin-bottom: 0.3rem;
-      font-weight: bold;
-    }
-    .results-header p {
-      font-size: 0.83rem;
-      color: var(--muted);
-    }
-
-    .rec-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
-    }
-    @media (max-width: 540px) { .rec-grid { grid-template-columns: 1fr; } }
-
-    .rec-card {
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 0.85rem 1rem;
-      background: var(--surface2);
-      cursor: pointer;
-      transition: border-color 0.15s;
-      text-decoration: none;
-      display: block;
-    }
-    .rec-card:hover { border-color: var(--red-bright); text-decoration: none; }
-    .rec-card .rc-num {
-      font-family: 'Courier New', monospace;
-      font-size: 0.68rem;
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.2rem;
-    }
-    .rec-card .rc-title {
-      font-size: 0.88rem;
-      color: var(--text);
-      line-height: 1.35;
-      margin-bottom: 0.3rem;
-    }
-    .rec-card .rc-actor {
-      font-size: 0.75rem;
-      color: var(--muted);
-      font-family: 'Courier New', monospace;
-    }
-    .rec-card.priority { border-color: var(--red-dim); }
-    .rec-card.priority .rc-num { color: #c06060; }
-
-    .always-block {
-      border-top: 1px solid var(--border);
-      padding-top: 1rem;
-      margin-top: 0.25rem;
-    }
-    .always-label {
-      font-family: 'Courier New', monospace;
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
-
-    .reset-btn {
-      margin-top: 1.25rem;
-      font-family: 'Courier New', monospace;
-      font-size: 0.78rem;
-      color: var(--muted);
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      text-decoration: underline;
-    }
-    .reset-btn:hover { color: var(--text); }
-
-    /* Answers summary shown while progressing */
-    .answer-trail {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .answer-chip {
-      font-family: 'Courier New', monospace;
-      font-size: 0.72rem;
-      padding: 0.2em 0.7em;
-      border-radius: 3px;
-      background: var(--red-glow);
-      border: 1px solid var(--red-dim);
-      color: #e88;
-    }
-
-    /* ── DIVIDER ── */
-    .paper-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 3rem 0 2rem;
-      position: relative;
-    }
-    .paper-divider-label {
-      position: absolute;
-      top: -0.65rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--bg);
-      padding: 0 1rem;
-      font-family: 'Courier New', monospace;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    /* ── FULL PAPER ── */
+    /* ── INTERVENTIONS ── */
     .paper-section {
       margin-bottom: 0.5rem;
     }
@@ -471,197 +263,97 @@
 
 <main>
 
-  <!-- ═══════════════════════════════════════════════
-       DECISION TREE
-  ════════════════════════════════════════════════ -->
-  <div class="tree-section">
-    <div class="tree-intro">
-      <h2>What should the US do?</h2>
-      <p>Answer three questions to find the interventions relevant to your threat model.</p>
-    </div>
+  <!-- Introduction & Intervention Overview -->
+  <div class="intro-section paper-prose">
 
-    <div id="tree-ui">
-      <!-- Progress -->
-      <div class="progress-bar" id="progress-bar">
-        <div class="progress-pip active" id="pip-0"></div>
-        <div class="progress-pip" id="pip-1"></div>
-        <div class="progress-pip" id="pip-2"></div>
-      </div>
-
-      <!-- Answer trail -->
-      <div class="answer-trail" id="answer-trail" style="display:none;"></div>
-
-      <!-- Q1 -->
-      <div class="question-card" id="q1">
-        <div class="q-label">Question 1 of 3</div>
-        <div class="q-text">Are robust technical safeguards for open-weight models feasible in the near term?</div>
-        <div class="q-context">Techniques like pre-training data filtering and alignment pre-training show promise, but none are currently foolproof. If this problem is solvable, restrictions may never need to be triggered.</div>
-        <div class="q-buttons">
-          <button class="q-btn" onclick="answer(1,'yes')">Yes &mdash; solvable</button>
-          <button class="q-btn" onclick="answer(1,'no')">No &mdash; not near-term</button>
-          <button class="q-btn" onclick="answer(1,'unclear')">Unclear</button>
-        </div>
-      </div>
-
-      <!-- Q2 -->
-      <div class="question-card" id="q2" style="display:none;">
-        <div class="q-label">Question 2 of 3</div>
-        <div class="q-text">Is diplomatic engagement with China a viable channel?</div>
-        <div class="q-context">China's AI Safety Governance Framework 2.0 already flags CBRN risks. But geopolitical conditions vary. If diplomacy is off the table, the US must rely on unilateral levers.</div>
-        <div class="q-buttons">
-          <button class="q-btn" onclick="answer(2,'yes')">Yes &mdash; viable</button>
-          <button class="q-btn" onclick="answer(2,'no')">No &mdash; not viable</button>
-        </div>
-      </div>
-
-      <!-- Q3 -->
-      <div class="question-card" id="q3" style="display:none;">
-        <div class="q-label">Question 3 of 3</div>
-        <div class="q-text">Has there been a documented case of AI-enabled misuse by a terrorist or state actor?</div>
-        <div class="q-context">A confirmed incident changes the evidentiary landscape: it enables sanctions designations, generates international pressure on the CCP, and triggers the most coercive interventions.</div>
-        <div class="q-buttons">
-          <button class="q-btn" onclick="answer(3,'yes')">Yes &mdash; confirmed incident</button>
-          <button class="q-btn" onclick="answer(3,'no')">No &mdash; not yet</button>
-        </div>
-      </div>
-
-      <!-- Results -->
-      <div class="results-panel" id="results">
-        <div class="results-header">
-          <h3>Recommended interventions for your threat model</h3>
-          <p id="results-summary"></p>
-        </div>
-        <div class="rec-grid" id="rec-grid"></div>
-        <div class="always-block">
-          <div class="always-label">Always recommended &mdash; regardless of assumptions</div>
-          <div class="rec-grid" id="always-grid">
-            <a class="rec-card priority" href="#s4-1">
-              <div class="rc-num">4.1 &mdash; Supply Chain</div>
-              <div class="rc-title">Mandate AI-enabled DNA synthesis screening</div>
-              <div class="rc-actor">HHS / OSTP / Congress</div>
-            </a>
-            <a class="rec-card priority" href="#s4-2">
-              <div class="rc-num">4.2 &mdash; Supply Chain</div>
-              <div class="rc-title">KYC requirements for cloud laboratories &amp; CROs</div>
-              <div class="rc-actor">HHS / NIST / Congress</div>
-            </a>
-            <a class="rec-card priority" href="#s2-1">
-              <div class="rc-num">2.1 &mdash; US &amp; Allies</div>
-              <div class="rc-title">Fund research into robust open-weight safeguards</div>
-              <div class="rc-actor">NSF / DARPA / Philanthropy</div>
-            </a>
-          </div>
-        </div>
-        <button class="reset-btn" onclick="reset()">&#8635; Start over</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════
-       FULL PAPER
-  ════════════════════════════════════════════════ -->
-  <div class="paper-divider" style="position:relative;">
-    <span class="paper-divider-label">Full paper</span>
-  </div>
-
-  <!-- 0. Introduction & Intervention Overview -->
-  <div class="paper-section">
-    <button class="accordion-trigger" onclick="toggleAccordion(this)">
-      <span class="sec-num">0.</span>
-      <span class="sec-title">Introduction &amp; Intervention Overview</span>
-      <span class="accordion-arrow">▼</span>
-    </button>
-    <div class="accordion-body" id="intro">
-      <div class="paper-prose">
-
-        <div class="paper-toc">
-          <ol start="0">
-            <li>Introduction &amp; Intervention Overview</li>
-            <li>Convince the Chinese Government to Restrict Open-Weight Releases
-              <ol class="sub">
-                <li>Communicate biosecurity risks through bilateral diplomacy</li>
-                <li>Publicize misuse to generate international pressure</li>
-              </ol>
-            </li>
-            <li>Limit Access Through Unilateral Action
-              <ol class="sub">
-                <li>Fund research into robust safeguards</li>
-                <li>Implement conditional bans on Chinese open-weight models</li>
-                <li>Reduce individual adoption through public risk communication</li>
-                <li>Sanction individuals and designate companies</li>
-              </ol>
-            </li>
-            <li>Shift the Calculus for Chinese AI Labs Directly
-              <ol class="sub">
-                <li>Researcher-to-researcher persuasion through academic channels</li>
-                <li>Offer conditional compute access in exchange for closed weights</li>
-              </ol>
-            </li>
-            <li>Harden the Biological Supply Chain
-              <ol class="sub">
-                <li>Mandate AI-enabled DNA synthesis screening</li>
-                <li>KYC requirements for cloud laboratories and CROs</li>
-              </ol>
-            </li>
+    <div class="paper-toc">
+      <ol start="0">
+        <li>Introduction &amp; Intervention Overview</li>
+        <li>Convince the Chinese Government to Restrict Open-Weight Releases
+          <ol class="sub">
+            <li>Communicate biosecurity risks through bilateral diplomacy</li>
+            <li>Publicize misuse to generate international pressure</li>
           </ol>
-        </div>
+        </li>
+        <li>Limit Access Through Unilateral Action
+          <ol class="sub">
+            <li>Fund research into robust safeguards</li>
+            <li>Implement conditional bans on Chinese open-weight models</li>
+            <li>Reduce individual adoption through public risk communication</li>
+            <li>Sanction individuals and designate companies</li>
+          </ol>
+        </li>
+        <li>Shift the Calculus for Chinese AI Labs Directly
+          <ol class="sub">
+            <li>Researcher-to-researcher persuasion through academic channels</li>
+            <li>Offer conditional compute access in exchange for closed weights</li>
+          </ol>
+        </li>
+        <li>Harden the Biological Supply Chain
+          <ol class="sub">
+            <li>Mandate AI-enabled DNA synthesis screening</li>
+            <li>KYC requirements for cloud laboratories and CROs</li>
+          </ol>
+        </li>
+      </ol>
+    </div>
 
-        <p>In January 2026, Las Vegas police and the FBI raided a suburban home and found multiple refrigerators, freezers, laboratory equipment, and &ldquo;numerous bottles&hellip; containing unknown liquid substances.&rdquo; The illegal biolab was connected to a similar operation discovered in Reedley, California roughly three years earlier. The Reedley facility contained thousands of vials of biological material, including potential pathogens such as HIV, malaria, tuberculosis, COVID-19, and Ebola; both labs were run by the same individual. Despite knowing about potential Las Vegas connections since 2023, it took a separate tip three years later to uncover the second operation.</p>
+    <p>In January 2026, Las Vegas police and the FBI raided a suburban home and found multiple refrigerators, freezers, laboratory equipment, and &ldquo;numerous bottles&hellip; containing unknown liquid substances.&rdquo; The illegal biolab was connected to a similar operation discovered in Reedley, California roughly three years earlier. The Reedley facility contained thousands of vials of biological material, including potential pathogens such as HIV, malaria, tuberculosis, COVID-19, and Ebola; both labs were run by the same individual. Despite knowing about potential Las Vegas connections since 2023, it took a separate tip three years later to uncover the second operation.</p>
 
-        <p>Biorisk is often discussed in hypothetical terms, with historical case studies pointing mostly towards failures and bottlenecks. But the Las Vegas biolab raid and its connection to the 2022 Reedley discovery show that dangerous biological operations could already be&ndash; and indeed, <i>were</i> &ndash; happening under the radar across multiple states.</p>
+    <p>Biorisk is often discussed in hypothetical terms, with historical case studies pointing mostly towards failures and bottlenecks. But the Las Vegas biolab raid and its connection to the 2022 Reedley discovery show that dangerous biological operations could already be&ndash; and indeed, <i>were</i> &ndash; happening under the radar across multiple states.</p>
 
-        <p>Historically, technical knowledge has been the limiting factor. When Aum Shinrikyo tried to weaponize anthrax in 1993, they had motivation and funding but lacked expertise&ndash; wrong bacterial strain, poor concentrations, equipment failures. Knowledge gaps killed their program. AI is quickly eroding that constraint. Publicly available models like o3 already outperform 94% of virology experts on laboratory protocol questions, even on questions directly relevant to the experts&rsquo; specialties. That benchmark performance hasn&rsquo;t yet translated cleanly into end-to-end weapons development guidance, but <b>the trajectory is clear.</b> Models are advancing toward the ability to provide expert-level virological guidance on demand, anonymously, and at scale. Anthropic&rsquo;s own internal bioweapons acquisition uplift trials found that Claude Opus 4 enhanced human performance by 2.53x on relevant tasks, enough to trigger activation of AI Safety Level 3.</p>
+    <p>Historically, technical knowledge has been the limiting factor. When Aum Shinrikyo tried to weaponize anthrax in 1993, they had motivation and funding but lacked expertise&ndash; wrong bacterial strain, poor concentrations, equipment failures. Knowledge gaps killed their program. AI is quickly eroding that constraint. Publicly available models like o3 already outperform 94% of virology experts on laboratory protocol questions, even on questions directly relevant to the experts&rsquo; specialties. That benchmark performance hasn&rsquo;t yet translated cleanly into end-to-end weapons development guidance, but <b>the trajectory is clear.</b> Models are advancing toward the ability to provide expert-level virological guidance on demand, anonymously, and at scale. Anthropic&rsquo;s own internal bioweapons acquisition uplift trials found that Claude Opus 4 enhanced human performance by 2.53x on relevant tasks, enough to trigger activation of AI Safety Level 3.</p>
 
-        <p>For <b>closed-weight models</b>, this risk is at least partially manageable. Input-output classifiers, safety fine-tuning, and know-your-customer requirements can intercept most non-sophisticated actors before they get actionable guidance. These mitigations are imperfect&ndash; models remain vulnerable to jailbreaks, and red-teaming studies have repeatedly demonstrated that they can be coaxed into providing dangerous guidance&ndash; but they represent a meaningful layer of friction. <b>Open-weight models have no such layer.</b> Once released, they can be downloaded, stripped of safety fine-tuning, and run locally with no oversight, no logging, and no recourse.</p>
+    <p>For <b>closed-weight models</b>, this risk is at least partially manageable. Input-output classifiers, safety fine-tuning, and know-your-customer requirements can intercept most non-sophisticated actors before they get actionable guidance. These mitigations are imperfect&ndash; models remain vulnerable to jailbreaks, and red-teaming studies have repeatedly demonstrated that they can be coaxed into providing dangerous guidance&ndash; but they represent a meaningful layer of friction. <b>Open-weight models have no such layer.</b> Once released, they can be downloaded, stripped of safety fine-tuning, and run locally with no oversight, no logging, and no recourse.</p>
 
-        <p>The best open-weight models in the world are Chinese (here are our best guesses for why Chinese AI companies open-weight their models).</p>
+    <p>The best open-weight models in the world are Chinese (here are our best guesses for why Chinese AI companies open-weight their models).</p>
 
-        <p>That leaves us the question: if Chinese open-weight models help rogue actors to build bioweapons, and we deem that an unacceptable risk, what could the US do? We think there are four broad classes of intervention:</p>
+    <p>That leaves us the question: if Chinese open-weight models help rogue actors to build bioweapons, and we deem that an unacceptable risk, what could the US do? We think there are four broad classes of intervention:</p>
 
-        <ul class="bullets">
-          <li><b>(CCP)</b> Convince the Chinese Government to Restrict Open-Weight Releases
-            <ul class="sub">
-              <li>1.1. Communicate biosecurity risks through bilateral diplomacy</li>
-              <li>1.2. Publicize misuse to generate international pressure</li>
-            </ul>
-          </li>
-          <li><b>(US &amp; ALLIES)</b> Limit Access to Chinese Open-Weight Models Through Unilateral Action
-            <ul class="sub">
-              <li>2.1. Fund research into robust safeguards for open-weight models</li>
-              <li>2.2. Implement conditional bans on Chinese open-weight models</li>
-              <li>2.3. Reduce individual adoption of Chinese AI through public risk communication</li>
-              <li>2.4. Sanction individuals and designate companies under counterterrorism authorities</li>
-            </ul>
-          </li>
-          <li><b>(LABS)</b> Shift the Calculus for Chinese AI Labs Directly
-            <ul class="sub">
-              <li>3.1. Researcher-to-researcher persuasion through academic channels</li>
-              <li>3.2. Offer conditional compute access in exchange for closed weights</li>
-            </ul>
-          </li>
-          <li><b>(SUPPLY CHAIN)</b> Harden the Biological Supply Chain Against Models Already in Circulation
-            <ul class="sub">
-              <li>4.1. Mandate AI-enabled DNA synthesis screening</li>
-              <li>4.2. Implement know-your-customer requirements for cloud laboratories</li>
-            </ul>
-          </li>
+    <ul class="bullets">
+      <li><b>(CCP)</b> Convince the Chinese Government to Restrict Open-Weight Releases
+        <ul class="sub">
+          <li>1.1. Communicate biosecurity risks through bilateral diplomacy</li>
+          <li>1.2. Publicize misuse to generate international pressure</li>
         </ul>
+      </li>
+      <li><b>(US &amp; ALLIES)</b> Limit Access to Chinese Open-Weight Models Through Unilateral Action
+        <ul class="sub">
+          <li>2.1. Fund research into robust safeguards for open-weight models</li>
+          <li>2.2. Implement conditional bans on Chinese open-weight models</li>
+          <li>2.3. Reduce individual adoption of Chinese AI through public risk communication</li>
+          <li>2.4. Sanction individuals and designate companies under counterterrorism authorities</li>
+        </ul>
+      </li>
+      <li><b>(LABS)</b> Shift the Calculus for Chinese AI Labs Directly
+        <ul class="sub">
+          <li>3.1. Researcher-to-researcher persuasion through academic channels</li>
+          <li>3.2. Offer conditional compute access in exchange for closed weights</li>
+        </ul>
+      </li>
+      <li><b>(SUPPLY CHAIN)</b> Harden the Biological Supply Chain Against Models Already in Circulation
+        <ul class="sub">
+          <li>4.1. Mandate AI-enabled DNA synthesis screening</li>
+          <li>4.2. Implement know-your-customer requirements for cloud laboratories</li>
+        </ul>
+      </li>
+    </ul>
 
-        <p style="margin-top:1rem;">Not all of the interventions proposed here should be implemented by default. The more adversarial recommendations should be (1) reserved for labs that release frontier open-weight models <i>without adequate safeguards</i><span class="fn-ref">1<span class="fn-tooltip">Techniques like pre-training data filtering and alignment pre-training, while not foolproof, can meaningfully reduce the biosecurity risk of open-weight release. Labs that invest in these measures and demonstrate their effectiveness should not be treated the same as labs that release raw capabilities with no mitigations.</span></span>, and (2) conditional on dual-use evaluations by the U.S. government concluding that open weight models <i>pose unacceptable risk</i>.</p>
+    <p style="margin-top:1rem;">Not all of the interventions proposed here should be implemented by default. The more adversarial recommendations should be (1) reserved for labs that release frontier open-weight models <i>without adequate safeguards</i><span class="fn-ref">1<span class="fn-tooltip">Techniques like pre-training data filtering and alignment pre-training, while not foolproof, can meaningfully reduce the biosecurity risk of open-weight release. Labs that invest in these measures and demonstrate their effectiveness should not be treated the same as labs that release raw capabilities with no mitigations.</span></span>, and (2) conditional on dual-use evaluations by the U.S. government concluding that open weight models <i>pose unacceptable risk</i>.</p>
 
-        <p>To that end, we also recommend that the U.S. government fund research into robust safeguards for open-weight models, so that the technical alternatives to restriction exist. If open-weight models can be made safe enough, the restrictive interventions described in this paper become unnecessary. The interventions should be understood as buying time for that safety research to succeed, rather than as advocating for a permanent end to open-weight models.</p>
+    <p>To that end, we also recommend that the U.S. government fund research into robust safeguards for open-weight models, so that the technical alternatives to restriction exist. If open-weight models can be made safe enough, the restrictive interventions described in this paper become unnecessary. The interventions should be understood as buying time for that safety research to succeed, rather than as advocating for a permanent end to open-weight models.</p>
 
-        <p><b>Author&rsquo;s Note: Follow-up work on mitigating adverse effects</b><br>
-        Many of the interventions proposed here impose costs on legitimate users. Startups building on Chinese open-weight models face disruption if those models can&rsquo;t be served by cloud providers, and academic researchers could lose access to weights they use for interpretability work and safety research. Whether these costs actually materialize depends on two open questions: how quickly robust safeguards for open-weight models can be developed (see Section 2.1), and whether dual-use evaluations conclude that current open-weight models cross the threshold of unacceptable risk.</p>
+    <p><b>Author&rsquo;s Note: Follow-up work on mitigating adverse effects</b><br>
+    Many of the interventions proposed here impose costs on legitimate users. Startups building on Chinese open-weight models face disruption if those models can&rsquo;t be served by cloud providers, and academic researchers could lose access to weights they use for interpretability work and safety research. Whether these costs actually materialize depends on two open questions: how quickly robust safeguards for open-weight models can be developed (see Section 2.1), and whether dual-use evaluations conclude that current open-weight models cross the threshold of unacceptable risk.</p>
 
-        <p>If safeguards advance fast enough, the restrictive interventions in this paper never need to be triggered. If they&rsquo;re triggered, they should be explicitly temporary, meaning tied to capability thresholds and revoked once adequate safeguards exist. But in the interim, if restrictions are implemented, their costs should be actively mitigated. We intend to explore specific measures&ndash; including research exemptions for academic use, migration support for startups transitioning to alternative models, and safe harbors for existing deployments during a defined transition period&ndash; in a subsequent publication.</p>
+    <p>If safeguards advance fast enough, the restrictive interventions in this paper never need to be triggered. If they&rsquo;re triggered, they should be explicitly temporary, meaning tied to capability thresholds and revoked once adequate safeguards exist. But in the interim, if restrictions are implemented, their costs should be actively mitigated. We intend to explore specific measures&ndash; including research exemptions for academic use, migration support for startups transitioning to alternative models, and safe harbors for existing deployments during a defined transition period&ndash; in a subsequent publication.</p>
 
-        <div class="footnote">
-          <sup>1</sup> Techniques like pre-training data filtering and alignment pre-training, while not foolproof, can meaningfully reduce the biosecurity risk of open-weight release. Labs that invest in these measures and demonstrate their effectiveness should not be treated the same as labs that release raw capabilities with no mitigations.
-        </div>
-      </div>
+    <div class="footnote">
+      <sup>1</sup> Techniques like pre-training data filtering and alignment pre-training, while not foolproof, can meaningfully reduce the biosecurity risk of open-weight release. Labs that invest in these measures and demonstrate their effectiveness should not be treated the same as labs that release raw capabilities with no mitigations.
     </div>
   </div>
+
+  <div style="height: 2rem;"></div>
 
   <!-- 1. CCP -->
   <div class="paper-section">
@@ -1041,186 +733,6 @@
 </footer>
 
 <script>
-  // ── State ──
-  const answers = {};
-
-  // ── All intervention cards ──
-  const interventions = {
-    '1.1': { num: '1.1', label: 'CCP / Diplomatic', title: 'Bilateral diplomacy on biosecurity risks', actor: 'State Dept / Executive Branch / DTRA', href: '#s1-1', section: 'section-1' },
-    '1.2': { num: '1.2', label: 'CCP / Diplomatic', title: 'Publicize misuse to generate international pressure', actor: 'Intelligence Community / NSC', href: '#s1-2', section: 'section-1' },
-    '2.1': { num: '2.1', label: 'US & Allies', title: 'Fund research into robust open-weight safeguards', actor: 'NSF / DARPA / Philanthropy', href: '#s2-1', section: 'section-2' },
-    '2.2': { num: '2.2', label: 'US & Allies', title: 'Implement conditional bans on Chinese open-weight models', actor: 'Dept of Commerce (BIS) / State Dept', href: '#s2-2', section: 'section-2' },
-    '2.3': { num: '2.3', label: 'US & Allies', title: 'Reduce individual adoption via public risk communication', actor: 'CISA / NIST / State Dept', href: '#s2-3', section: 'section-2' },
-    '2.4': { num: '2.4', label: 'US & Allies', title: 'Sanction individuals under counterterrorism authorities', actor: 'Treasury (OFAC) / State Dept', href: '#s2-4', section: 'section-2' },
-    '3.1': { num: '3.1', label: 'Labs / Academia', title: 'Promote open-weight safety practices via academic channels', actor: 'AI safety researchers / Biosecurity experts', href: '#s3-1', section: 'section-3' },
-    '3.2': { num: '3.2', label: 'Labs / Academia', title: 'Conditional compute access in exchange for closed weights', actor: 'Dept of Commerce (BIS) / State Dept', href: '#s3-2', section: 'section-3' },
-  };
-
-  function answer(q, val) {
-    answers[q] = val;
-
-    // Update button styles
-    const card = document.getElementById('q' + q);
-    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
-    event.target.classList.add('selected');
-
-    // Short delay then advance
-    setTimeout(() => {
-      if (q === 1) {
-        showQ(2);
-      } else if (q === 2) {
-        showQ(3);
-      } else if (q === 3) {
-        showResults();
-      }
-    }, 220);
-  }
-
-  function showQ(n) {
-    // Update progress
-    document.getElementById('pip-' + (n-1)).classList.remove('active');
-    document.getElementById('pip-' + (n-1)).classList.add('done');
-    if (n < 3) document.getElementById('pip-' + n).classList.add('active');
-
-    // Update trail
-    const trail = document.getElementById('answer-trail');
-    trail.style.display = 'flex';
-    const qLabels = { 1: 'Safeguards feasible?', 2: 'Diplomacy viable?', 3: 'Misuse documented?' };
-    const ansLabels = { yes: 'Yes', no: 'No', unclear: 'Unclear', 'yes-solvable': 'Yes', 'no-not-near-term': 'No' };
-    const chip = document.createElement('span');
-    chip.className = 'answer-chip';
-    chip.textContent = qLabels[n-1] + ' → ' + (answers[n-1] === 'yes' ? 'Yes' : answers[n-1] === 'no' ? 'No' : 'Unclear');
-    trail.appendChild(chip);
-
-    document.getElementById('q' + n).style.display = 'block';
-    document.getElementById('q' + n).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  function showResults() {
-    // Update progress
-    document.getElementById('pip-2').classList.remove('active');
-    document.getElementById('pip-2').classList.add('done');
-
-    // Update trail for Q3
-    const trail = document.getElementById('answer-trail');
-    const chip = document.createElement('span');
-    chip.className = 'answer-chip';
-    chip.textContent = 'Misuse documented? → ' + (answers[3] === 'yes' ? 'Yes' : 'No');
-    trail.appendChild(chip);
-
-    // Compute recommendations
-    const recs = computeRecs();
-
-    // Render
-    const grid = document.getElementById('rec-grid');
-    grid.innerHTML = '';
-    recs.forEach(id => {
-      const i = interventions[id];
-      const a = document.createElement('a');
-      a.className = 'rec-card';
-      a.href = i.href;
-      a.onclick = () => openSection(i.section);
-      a.innerHTML = `<div class="rc-num">${i.num} &mdash; ${i.label}</div><div class="rc-title">${i.title}</div><div class="rc-actor">${i.actor}</div>`;
-      grid.appendChild(a);
-    });
-
-    // Summary text
-    document.getElementById('results-summary').textContent = summaryText();
-
-    // Show panel
-    const panel = document.getElementById('results');
-    panel.classList.add('visible');
-    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  function computeRecs() {
-    const q1 = answers[1]; // yes / no / unclear
-    const q2 = answers[2]; // yes / no
-    const q3 = answers[3]; // yes / no
-
-    const recs = new Set();
-
-    // Q1: safeguards feasible?
-    // Always fund 2.1 — already in "always" block, but also push it to top if q1=yes
-    // If q1=yes, safeguards are the main path
-    // If q1=no or unclear, policy levers are needed now
-
-    // Q2: diplomacy viable?
-    if (q2 === 'yes') {
-      recs.add('1.1'); // bilateral diplomacy
-      recs.add('3.1'); // academic channels
-      recs.add('3.2'); // conditional compute
-    }
-
-    // Q3: misuse documented?
-    if (q3 === 'yes') {
-      recs.add('1.2'); // publicize misuse
-      recs.add('2.4'); // sanctions
-      recs.add('2.2'); // conditional bans (now justified)
-    } else {
-      recs.add('2.2'); // conditional bans (pressure measure)
-      recs.add('2.3'); // public risk communication
-    }
-
-    // If diplomacy not viable, lean harder on unilateral
-    if (q2 === 'no') {
-      recs.add('2.2');
-      recs.add('2.3');
-      recs.add('3.2'); // compute leverage still works without diplomacy
-    }
-
-    // If safeguards seem feasible, prioritize that path clearly
-    if (q1 === 'yes') {
-      // 2.1 is in always block; no extra recs needed beyond core unilateral
-    }
-
-    return Array.from(recs);
-  }
-
-  function summaryText() {
-    const q1 = answers[1];
-    const q2 = answers[2];
-    const q3 = answers[3];
-
-    let parts = [];
-    if (q1 === 'yes') parts.push('safeguards are a viable long-term solution');
-    if (q1 === 'no') parts.push('policy restrictions are needed now');
-    if (q2 === 'yes') parts.push('diplomacy is on the table');
-    if (q2 === 'no') parts.push('unilateral action is the primary lever');
-    if (q3 === 'yes') parts.push('a confirmed incident enables the full coercive toolkit');
-    if (q3 === 'no') parts.push('preventive measures apply');
-
-    return parts.length ? parts.map((p, i) => i === 0 ? p.charAt(0).toUpperCase() + p.slice(1) : p).join('; ') + '.' : '';
-  }
-
-  function reset() {
-    // Clear answers
-    Object.keys(answers).forEach(k => delete answers[k]);
-
-    // Reset UI
-    ['q1','q2','q3'].forEach((id, i) => {
-      const el = document.getElementById(id);
-      el.style.display = i === 0 ? 'block' : 'none';
-      el.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
-    });
-
-    // Reset progress
-    ['pip-0','pip-1','pip-2'].forEach((id, i) => {
-      const el = document.getElementById(id);
-      el.classList.remove('done','active');
-      if (i === 0) el.classList.add('active');
-    });
-
-    // Reset trail
-    const trail = document.getElementById('answer-trail');
-    trail.innerHTML = '';
-    trail.style.display = 'none';
-
-    // Hide results
-    document.getElementById('results').classList.remove('visible');
-  }
-
-  // ── Accordion ──
   function toggleAccordion(trigger) {
     const body = trigger.nextElementSibling;
     const isOpen = trigger.classList.contains('open');
