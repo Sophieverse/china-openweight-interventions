@@ -133,7 +133,7 @@
     }
     @keyframes dnaScroll {
       from { transform: translateY(0); }
-      to   { transform: translateY(-50%); }
+      to   { transform: translateY(-28px); }
     }
     .subtitle {
       color: var(--muted);
@@ -830,18 +830,20 @@
   <!-- 4. SUPPLY CHAIN -->
   <div class="paper-section" id="anchor-4">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-      <!-- Section 4: DNA double helix, scrolling -->
-      <span class="sec-icon">
-        <svg width="22" height="56" viewBox="0 0 22 56" fill="none" style="animation: dnaScroll 3.5s linear infinite; display:block;">
-          <!-- Strand A -->
-          <path d="M11,0 Q20,7 11,14 Q2,21 11,28 Q20,35 11,42 Q2,49 11,56" stroke="#8b1a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- Strand B -->
-          <path d="M11,0 Q2,7 11,14 Q20,21 11,28 Q2,35 11,42 Q20,49 11,56" stroke="#b8b0a6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- Crossbars -->
+      <!-- Section 4: DNA double helix, seamless scroll -->
+      <span class="sec-icon" style="align-items: flex-start;">
+        <svg width="22" height="84" viewBox="0 0 22 84" fill="none" style="animation: dnaScroll 3.5s linear infinite; display:block;">
+          <!-- Strand A — 3 full periods -->
+          <path d="M11,0 Q20,7 11,14 Q2,21 11,28 Q20,35 11,42 Q2,49 11,56 Q20,63 11,70 Q2,77 11,84" stroke="#8b1a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Strand B — 3 full periods -->
+          <path d="M11,0 Q2,7 11,14 Q20,21 11,28 Q2,35 11,42 Q20,49 11,56 Q2,63 11,70 Q20,77 11,84" stroke="#b8b0a6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Crossbars every 14px -->
           <line x1="5" y1="7"  x2="17" y2="7"  stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
           <line x1="5" y1="21" x2="17" y2="21" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
           <line x1="5" y1="35" x2="17" y2="35" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
           <line x1="5" y1="49" x2="17" y2="49" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+          <line x1="5" y1="63" x2="17" y2="63" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+          <line x1="5" y1="77" x2="17" y2="77" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
         </svg>
       </span>
       <span class="sec-num">4.</span>
@@ -971,20 +973,20 @@
   <div class="further-reading">
     <div class="further-reading-label">Further Reading</div>
     <div class="further-reading-cards">
-      <a class="fr-card" href="https://thecounterfactual.substack.com/p/the-open-weight-problem" target="_blank">
+      <a class="fr-card" href="https://thecounterfactual.substack.com/p/s3741-and-the-art-of-not-dying-of" target="_blank">
         <div class="fr-pub">The Counterfactual</div>
-        <div class="fr-title">The Open-Weight Problem</div>
-        <div class="fr-desc">Open-weight AI models are unmonitorable, unguardrailed, and getting very good.</div>
+        <div class="fr-title">AI Can Already Evade DNA Synthesis Screening. Congress&rsquo;s New Bill Doesn&rsquo;t Address That.</div>
+        <div class="fr-desc">A gap analysis of the Biosecurity Modernization and Innovation Act of 2026.</div>
       </a>
       <a class="fr-card" href="https://firstscattering.com/cp/186276872" target="_blank">
         <div class="fr-pub">The First Scattering</div>
         <div class="fr-title">Why Does China Open Source Their AI Models?</div>
         <div class="fr-desc">A curious approach to AI competition.</div>
       </a>
-      <a class="fr-card" href="https://thecounterfactual.substack.com/p/s3741-and-the-art-of-not-dying-of" target="_blank">
+      <a class="fr-card" href="https://thecounterfactual.substack.com/p/the-open-weight-problem" target="_blank">
         <div class="fr-pub">The Counterfactual</div>
-        <div class="fr-title">AI Can Already Evade DNA Synthesis Screening. Congress&rsquo;s New Bill Doesn&rsquo;t Address That.</div>
-        <div class="fr-desc">A gap analysis of the Biosecurity Modernization and Innovation Act of 2026.</div>
+        <div class="fr-title">The Open-Weight Problem</div>
+        <div class="fr-desc">Open-weight AI models are unmonitorable, unguardrailed, and getting very good.</div>
       </a>
     </div>
   </div>
