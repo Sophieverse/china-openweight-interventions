@@ -109,6 +109,13 @@
       line-height: 1.2;
       color: var(--text);
       margin-bottom: 0.65rem;
+      animation: titleHighlight 3.2s ease-in-out 0.3s both;
+    }
+    @keyframes titleHighlight {
+      0%   { color: var(--text); }
+      20%  { color: #8b1a1a; }
+      65%  { color: #8b1a1a; }
+      100% { color: var(--text); }
     }
     .subtitle {
       color: var(--muted);
@@ -289,11 +296,6 @@
     [id] { scroll-margin-top: 2rem; }
 
     /* ── MINI GRAPHICS ── */
-    .header-art {
-      margin: 1.75rem 0 0;
-    }
-    .header-art svg { display: block; }
-
     .sec-icon {
       flex-shrink: 0;
       margin-right: 0.6rem;
@@ -375,39 +377,6 @@
   <p class="subtitle">Chinese open-weight models are on track to lower the barrier to bioweapons development. Here&rsquo;s what we can do about it.</p>
   <div class="meta">Published April 10, 2026 | Last Updated April 10, 2026</div>
 
-  <!-- Header: open lock → spreading access -->
-  <div class="header-art">
-    <svg width="320" height="68" viewBox="0 0 320 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Danger zone fill above threshold -->
-      <rect x="0" y="0" width="320" height="13" fill="#8b1a1a" fill-opacity="0.05"/>
-      <!-- Threshold line -->
-      <line x1="0" y1="13" x2="320" y2="13" stroke="#8b1a1a" stroke-width="0.85" stroke-dasharray="5 3.5" opacity="0.45"/>
-      <!-- Threshold label -->
-      <text x="8" y="10" font-size="6.5" fill="#8b1a1a" font-family="Courier New,monospace" letter-spacing="0.04em" opacity="0.55">biosecurity threshold</text>
-
-      <!-- Trajectory curve: slow rise then steep approach to threshold -->
-      <path d="M16,60 C70,60 160,56 298,16" stroke="#b8b2aa" stroke-width="1.5" stroke-linecap="round"/>
-      <!-- Red overlay for the final steep segment near threshold -->
-      <path d="M210,38 C248,28 278,20 298,16" stroke="#8b1a1a" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-
-      <!-- Milestone dots along curve (gray→red gradient by position) -->
-      <circle cx="16"  cy="60" r="2.2" fill="#cdc8c1"/>
-      <circle cx="68"  cy="59" r="2.4" fill="#bdb7af"/>
-      <circle cx="128" cy="54" r="2.6" fill="#a89f97"/>
-      <circle cx="200" cy="40" r="3"   fill="#9b8880"/>
-      <!-- Frontier dot: pulses -->
-      <circle cx="298" cy="16" r="3.5" fill="#8b1a1a">
-        <animate attributeName="r"            values="3.5;5.2;3.5" dur="2.8s" repeatCount="indefinite"/>
-        <animate attributeName="fill-opacity" values="1;0.45;1"   dur="2.8s" repeatCount="indefinite"/>
-      </circle>
-
-      <!-- Projected continuation past threshold (dashed) -->
-      <path d="M298,16 Q310,8 330,4" stroke="#8b1a1a" stroke-width="1" stroke-dasharray="3 2.5" stroke-linecap="round" opacity="0.3"/>
-
-      <!-- Capability label (bottom-left) -->
-      <text x="8" y="67" font-size="6.5" fill="#a09890" font-family="Courier New,monospace" letter-spacing="0.04em" opacity="0.65">AI capability →</text>
-    </svg>
-  </div>
 </header>
 
 <main id="intro">
