@@ -131,10 +131,6 @@
     @keyframes lineSweep {
       to { width: 100%; }
     }
-    @keyframes dnaScroll {
-      from { transform: translateY(0); }
-      to   { transform: translateY(-28px); }
-    }
     .subtitle {
       color: var(--muted);
       font-size: 1rem;
@@ -830,20 +826,24 @@
   <!-- 4. SUPPLY CHAIN -->
   <div class="paper-section" id="anchor-4">
     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-      <!-- Section 4: DNA double helix, seamless scroll -->
+      <!-- Section 4: DNA double helix, seamless scroll via SMIL -->
       <span class="sec-icon" style="align-items: flex-start;">
-        <svg width="22" height="84" viewBox="0 0 22 84" fill="none" style="animation: dnaScroll 3.5s linear infinite; display:block;">
-          <!-- Strand A — 3 full periods -->
-          <path d="M11,0 Q20,7 11,14 Q2,21 11,28 Q20,35 11,42 Q2,49 11,56 Q20,63 11,70 Q2,77 11,84" stroke="#8b1a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- Strand B — 3 full periods -->
-          <path d="M11,0 Q2,7 11,14 Q20,21 11,28 Q2,35 11,42 Q20,49 11,56 Q2,63 11,70 Q20,77 11,84" stroke="#b8b0a6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- Crossbars every 14px -->
-          <line x1="5" y1="7"  x2="17" y2="7"  stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
-          <line x1="5" y1="21" x2="17" y2="21" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
-          <line x1="5" y1="35" x2="17" y2="35" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
-          <line x1="5" y1="49" x2="17" y2="49" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
-          <line x1="5" y1="63" x2="17" y2="63" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
-          <line x1="5" y1="77" x2="17" y2="77" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+        <svg width="22" height="84" viewBox="0 0 22 84" fill="none" style="display:block;">
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              values="0,0; 0,-28" dur="3.5s" repeatCount="indefinite" calcMode="linear"/>
+            <!-- Strand A — 3 full periods -->
+            <path d="M11,0 Q20,7 11,14 Q2,21 11,28 Q20,35 11,42 Q2,49 11,56 Q20,63 11,70 Q2,77 11,84" stroke="#8b1a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- Strand B — 3 full periods -->
+            <path d="M11,0 Q2,7 11,14 Q20,21 11,28 Q2,35 11,42 Q20,49 11,56 Q2,63 11,70 Q20,77 11,84" stroke="#b8b0a6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- Crossbars every 14px -->
+            <line x1="5" y1="7"  x2="17" y2="7"  stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+            <line x1="5" y1="21" x2="17" y2="21" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+            <line x1="5" y1="35" x2="17" y2="35" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+            <line x1="5" y1="49" x2="17" y2="49" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+            <line x1="5" y1="63" x2="17" y2="63" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+            <line x1="5" y1="77" x2="17" y2="77" stroke="#d4cfc8" stroke-width="1" stroke-linecap="round"/>
+          </g>
         </svg>
       </span>
       <span class="sec-num">4.</span>
