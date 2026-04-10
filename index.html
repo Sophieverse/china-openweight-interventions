@@ -298,6 +298,60 @@
     .paper-toc li { margin: 0.25rem 0; }
     .paper-toc .sub { padding-left: 1rem; list-style: none; color: var(--muted); }
 
+    /* ── FURTHER READING ── */
+    .further-reading {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1.5px solid var(--border);
+    }
+    .further-reading-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+    .further-reading-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .fr-card {
+      display: block;
+      text-decoration: none;
+      padding: 1.1rem 1.25rem;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      background: var(--surface);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .fr-card:hover {
+      border-color: var(--red);
+      box-shadow: 0 2px 8px rgba(139,26,26,0.07);
+    }
+    .fr-pub {
+      font-family: 'Courier New', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.4rem;
+    }
+    .fr-title {
+      font-family: Georgia, serif;
+      font-size: 0.92rem;
+      font-weight: bold;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 0.4rem;
+    }
+    .fr-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem 0;
@@ -913,6 +967,27 @@
   </div>
 
 </main>
+
+  <div class="further-reading">
+    <div class="further-reading-label">Further Reading</div>
+    <div class="further-reading-cards">
+      <a class="fr-card" href="https://thecounterfactual.substack.com/p/the-open-weight-problem" target="_blank">
+        <div class="fr-pub">The Counterfactual</div>
+        <div class="fr-title">The Open-Weight Problem</div>
+        <div class="fr-desc">Open-weight AI models are unmonitorable, unguardrailed, and getting very good.</div>
+      </a>
+      <a class="fr-card" href="https://firstscattering.com/cp/186276872" target="_blank">
+        <div class="fr-pub">The First Scattering</div>
+        <div class="fr-title">Why Does China Open Source Their AI Models?</div>
+        <div class="fr-desc">A curious approach to AI competition.</div>
+      </a>
+      <a class="fr-card" href="https://thecounterfactual.substack.com/p/s3741-and-the-art-of-not-dying-of" target="_blank">
+        <div class="fr-pub">The Counterfactual</div>
+        <div class="fr-title">AI Can Already Evade DNA Synthesis Screening. Congress&rsquo;s New Bill Doesn&rsquo;t Address That.</div>
+        <div class="fr-desc">A gap analysis of the Biosecurity Modernization and Innovation Act of 2026.</div>
+      </a>
+    </div>
+  </div>
 
 <footer></footer>
 
